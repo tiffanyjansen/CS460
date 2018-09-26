@@ -1,9 +1,9 @@
 h1{
     text-align: center;
-    color: white
+    color: black
 }
 body {
-    background-color: maroon;
+    background-color: gold;
 }
 h3{
     text-align: center;
@@ -15,5 +15,5 @@ li{
 #box {
     border: 1px solid black;
     padding: 5px;
-    background-color: tan;
+    background-color: blue;
 }
