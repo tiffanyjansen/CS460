@@ -1,8 +1,16 @@
 h1{
     text-align: center;
+    color: white
 }
 body {
-    background-color: purple;
+    background-color: maroon;
+}
+h3{
+    text-align: center;
+    color: white;
+}
+li{
+    color: white;
 }
 #box {
     border: 1px solid black;
