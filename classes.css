@@ -7,7 +7,6 @@ body {
 }
 h3{
     text-align: center;
-    color: white;
 }
 li{
     color: white;
@@ -16,4 +15,5 @@ li{
     border: 1px solid black;
     padding: 5px;
     background-color: blue;
+    color: white;
 }
