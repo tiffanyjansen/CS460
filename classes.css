@@ -25,3 +25,9 @@ li{
 #item {
     display: inline;
 }
+#navbar{
+    border: 2px solid white;
+    padding: 5 px;
+    background-color: black;
+    color: white;
+}
