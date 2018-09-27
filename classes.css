@@ -1,9 +1,5 @@
 h1{
     text-align: center;
-    color: black
-}
-body {
-    background-color: gold;
 }
 h3{
     text-align: center;
@@ -14,7 +10,7 @@ li{
 #box {
     border: 1px solid black;
     padding: 5px;
-    background-color: blue;
+    background-color: rgb(124, 124, 114);
     color: white;
 }
 #list{
@@ -22,7 +18,7 @@ li{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(101, 3, 131);
 }  
 #item {
     float: left;
@@ -36,11 +32,12 @@ li a{
 }
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: rgb(0, 255, 98);
 }
 #title{
-    border: 6px dotted palevioletred;
+    border: 10px dotted rgb(101, 3, 131);
     background-color: black;
     color: white;
     padding: 10px;
+    text-align: center;
 }
