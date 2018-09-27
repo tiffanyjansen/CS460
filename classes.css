@@ -75,3 +75,9 @@ th{
     padding: 20px;
     background-color: rgb(54, 253, 130);
 }
+#images{
+    margin: 100px 50px 10px 10px;
+}
+#imager{
+    margin: 100px 50px 10px 75px;
+}
