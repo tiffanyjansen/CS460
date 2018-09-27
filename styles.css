@@ -4,3 +4,17 @@
     text-align: center;
     padding: 10px;
 }
+h1{
+    text-align: center;
+}
+#about{
+    background-color: lightblue;
+    padding: 10px;
+}
+h2{
+    text-align: center;
+}
+#links{
+    background-color: lightblue;
+    padding: 10px;
+}
