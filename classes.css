@@ -21,16 +21,20 @@ li{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }  
 #item {
-    display: inline;
-    color: white;
+    float: left;
 }
 li a{
+    display: block;
     color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-#navbar{
-    border: 2px solid white;
-    padding: 10 px;
-    background-color: black;
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }
