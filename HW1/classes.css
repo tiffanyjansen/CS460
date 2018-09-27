@@ -68,6 +68,7 @@ table{
 td{
     border: 1px solid black;
     padding: 10px;
+    background-color: rgb(241, 238, 238);
 }
 th{
     border: 1px solid black;
