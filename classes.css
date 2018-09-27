@@ -26,6 +26,9 @@ li{
     display: inline;
     color: white;
 }
+li a{
+    color: white;
+}
 #navbar{
     border: 2px solid white;
     padding: 5 px;
