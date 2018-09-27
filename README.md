@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title> My Portfolio </title>      
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <h1 text-align="center">Tiffany Jansen's Portfolio</h1>
+<head text-align:"center";>
+<h1> My Portfolio </h1>
+<h2> By: Tiffany Jansen </h2>
+<h3> Hello, My name is Tiffany Jansen and I am a Computer Science Mathematics Dual Major at Western Oregon University. Right now I am in the senior project sequence for Computer Science.</h3>
 </head>
-<body>
-
-</body>
-</html>
-
