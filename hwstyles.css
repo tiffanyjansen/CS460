@@ -42,6 +42,27 @@
     margin-left: 25px;
     margin-top: 25px;
 }
-#Pic{
-    margin: 10px 10px 10px 10px;
+img{
+    margin-bottom: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 25px
+}
+#pic{
+    margin-right: 25px;
+    margin-left: 0px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#fit{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 50px;
+}
+#closing{
+    text-align: center;
+}
+#sign{
+    text-align: center;
+    font-family: "Brush Script MT";
 }
