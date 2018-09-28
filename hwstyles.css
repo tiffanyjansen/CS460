@@ -1,0 +1,22 @@
+#hw{
+    margin-top: 25px;
+    margin-right: 500px;
+    margin-left: 500px;
+    border: 5px dashed black;
+    text-align: center;
+}
+#home{
+    margin-top: 10px;
+    margin-right: 200px;
+    margin-left: 200px;
+    border: 2px dashed black;
+    text-align: center;
+}
+#work{
+    margin-top: 25px;
+    text-align: center;
+}
+#repo{
+    text-align: center;
+    margin-top: 25px;
+}
