@@ -11,18 +11,19 @@
     border: solid 5px black;
     text-align: center;
     padding: 10px;
+    visibility: visible;
+}
+#text2{
+    margin-top: 10px;
+    background: lightblue;
+    border: solid 5px black;
+    text-align: center;
+    padding: 10px;
+    visibility: visible;
 }
 #func{
     margin-top: 20px;
     background: lightblue;
     border: solid 5px black;
     padding: 10px;
-}
-#error{
-    margin-top: 5px;
-    background: rgb(245, 52, 52);
-    border: dotted 5px white;
-    text-align: center;
-    padding: 10px;
-    visibility: hidden;
 }

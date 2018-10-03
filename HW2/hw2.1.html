@@ -17,11 +17,17 @@
 <body>
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <div id="error">
+                </div>
+            </div>
+        </div> 
+        <div class="row">
             <div class="col-4">
                 <div id="text">
                     <h3>Please input the function you would like to differentiate and integrate.</h3>
                 </div>
-                <div id="text">
+                <div id="text2">
                     <h3>Here are some examples of polynomial functions:</h3>
                     <h5>
                         3x^2 + 4x + 5 <br>
@@ -30,7 +36,7 @@
                     </h5>
                 </div>
             </div>       
-            <div class="col-8">
+            <div class="col-8" id = "max">
                 <div id="func">
                     <form>
                         <h3>f(x)=</h3>
@@ -42,12 +48,10 @@
         </div>
         <div class="row">
                 <div class="col-12">
-                    <div id="error">
-                        <h1>Error!</h1>
-                        <p>Input received was not a polynomial. Please try again.</p>
+                    <div id="table">
                     </div>
                 </div>
-            </div>            
+            </div>           
     </div>
     <script
         src="https://code.jquery.com/jquery-3.3.1.js"
