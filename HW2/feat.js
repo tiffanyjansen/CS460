@@ -60,11 +60,5 @@ function findDer(fx){
     }
 }
 function createTable(int, fx, firDer, secDer){
-    var tab = document.createElement("table");
-    var node = document.getElementById("output");
-    var head = tab.createTHead();
-    var body = tab.createTBody();
-    head.insertRow("F(x)", "f(x)", "f(x)", "f''(x)");
-    body.insertRow(-1, int, fx, firDer, secDer);
-    node.appendChild(tab);
+    
 }
