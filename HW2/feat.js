@@ -60,5 +60,17 @@ function findDer(fx){
     }
 }
 function createTable(int, fx, firDer, secDer){
-    
+    var data = [int, fx, firDer, secDer];
+    var columnHeadings = ["Integral F(x)", "Function f(x)", "First Derivative f'(x)", "Second Derivative f''(x)"];
+    var columnCount = columnHeadings.length;
+    var rowCount = data.length;
+    var table = $('<table>').appendTo('#output');
+    var header = $('<thead />').appendTo(table);
+    for (var i = 0; i < columnCount; i++) {
+        $('<th />', { text: columnHeadings[i] }).appendTo(header);
+    }
+    var tBody = $('<tbody />').appendTo(table);
+    //get row set up right.
+    document.getElementById("output").style.visibility = "visible";
+    document.getElementById("Title").style.background = "lightgreen";
 }
