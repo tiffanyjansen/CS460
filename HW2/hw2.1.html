@@ -34,12 +34,26 @@
                 <div id="func">
                     <form>
                         <h3>f(x)=</h3>
-                        <textarea name="funtion" rows="10" cols="97"></textarea>
-                        <input type="submit" value="Submit">
+                        <textarea id="function" name="funtion" rows="9" cols="97"></textarea>
+                        <button type="button" onclick="enter()">Submit</button>
                     </form>
                 </div>
             </div>
-        </div>            
+        </div>
+        <div class="row">
+                <div class="col-12">
+                    <div id="error">
+                        <h1>Error!</h1>
+                        <p>Input received was not a polynomial. Please try again.</p>
+                    </div>
+                </div>
+            </div>            
     </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script src="feat.js"></script>
 </body>
 </html>
