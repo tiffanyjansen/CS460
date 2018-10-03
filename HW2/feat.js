@@ -12,16 +12,16 @@ function enter(){
     var words = document.getElementById("function").value;
     document.getElementById("function").value = "";
     console.log(words);
-    if(match(words) == null){
+    if(check(words) == false){
         error();
     }
     else{
         matched(words);
     }
 }
-function match(s){
-    var regs = /\d+x\^\d+/
-    var found = s.match(regs);
+function check(s){
+    var regs = /\d+x?\^?\d*(\+|\-)?/g
+    var found = regs.test(s);
     console.log(found);
     return found;
 }
@@ -30,5 +30,6 @@ function matched(fx){
     document.getElementById("text2").remove();
     document.getElementById("func").remove();
     document.getElementById("error").remove();
+    document.getElementById("note").remove();
     console.log(fx);
 }

@@ -21,8 +21,16 @@
     padding: 10px;
     visibility: visible;
 }
+#note{
+    margin-top: 10px;
+    background: lightblue;
+    border: solid 5px black;
+    text-align: center;
+    padding: 10px;
+    visibility: visible;
+}
 #func{
-    margin-top: 20px;
+    margin-top: 30px;
     background: lightblue;
     border: solid 5px black;
     padding: 10px;
