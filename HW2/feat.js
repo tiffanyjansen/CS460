@@ -32,16 +32,41 @@ function matched(fx){
     document.getElementById("error").remove();
     document.getElementById("note").remove();
     console.log(fx);
-    var integral = findInt(fx);
-    var firstDer = findDer(fx);
-    var secondDer = findDer(firstDer);
-    fx = parseFunc(fx);
+    var integral = findIntType(fx);
+    var firstDer = findDerType(fx);
+    var secondDer = findDerType(firstDer);
+    if(firstDer === 0){
+        fx = parseFunc(fx);
+    }
     createTable(integral, fx, firstDer, secondDer);
 }
 function findPieces(fx){
-    
+    var splitReg = /(\+|\-)/;
+    var func = fx.split(splitReg).map(String);
+    console.log(func[0]);
+    console.log("func = " + func);
+    for(var i = 0; i<func.length; i++){
+        var poly = /\d+x\^d+/;
+        var spot = "" + func[i];
+        console.log("spot = " + spot);
+        console.log(poly);
+        console.log(poly.test(spot));        
+        if(poly.test(spot) == true){
+            console.log("We found a match!");
+            var coefficient = /\d+x/;
+            var exponent = /\^d+/;
+            var coef = spot.match(coefficient).map(String);
+            var expo = spot.match(exponent).map(String);
+        }
+        console.log("expo = " + expo);
+        console.log("coef = " + coef);
+        var integral = findInt(coef, expo, func);
+    }
 }
-function findInt(fx){
+function findInt(coef, expo, func){
+    return 0;
+}
+function findIntType(fx){
     var reg = /x+/g;
     if(reg.test(fx)==true){
         findPieces(fx);
@@ -57,7 +82,7 @@ function findInt(fx){
         return found + 'x';
     }
 }
-function findDer(fx){
+function findDerType(fx){
     var reg = /x+/g;    
     if(reg.test(fx)==true){
         //JUST NEED TO DO THIS PART!!
