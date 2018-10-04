@@ -1,3 +1,6 @@
+/*
+ * The error function adds an error message for incorrect input.
+ */
 function error(){
     var node = document.getElementById("error");
     var heading = document.createElement("h2");
@@ -8,6 +11,10 @@ function error(){
     heading.appendChild(message);
     node.appendChild(heading);
 }
+/*
+ * The enter function is the function that is called when 
+ * the submit button is clicked on.
+ */
 function enter(){
     var words = document.getElementById("function").value;
     document.getElementById("function").value = "";
@@ -19,12 +26,19 @@ function enter(){
         matched(words);
     }
 }
+/*
+ * The check functionchecks to see if the input
+ * is a polynomial or not.
+ */
 function check(s){
     var reg = /\d+x?\^?\d*(\+|\-)?/g;
     var found = reg.test(s);
-    console.log(found);
     return found;
 }
+/*
+ * The matched function happens when the input received
+ * is in fact a polynomial.
+ */
 function matched(fx){
     document.getElementById("text").remove();
     document.getElementById("text2").remove();
@@ -32,74 +46,123 @@ function matched(fx){
     document.getElementById("error").remove();
     document.getElementById("note").remove();
     console.log(fx);
-    var integral = findIntType(fx);
     var firstDer = findDerType(fx);
     var secondDer = findDerType(firstDer);
     if(firstDer === 0){
         fx = parseFunc(fx);
     }
-    createTable(integral, fx, firstDer, secondDer);
+    createTable(fx, firstDer, secondDer);
 }
+/*
+ * The findPieces function finds all of the pieces that matter in 
+ * a polynomial function and splits them into the respective parts.
+ */
 function findPieces(fx){
     var splitReg = /(\+|\-)/;
     var func = fx.split(splitReg).map(String);
-    console.log(func[0]);
+    var coef = [];
+    var expo = [];
+    var k = 0;
     console.log("func = " + func);
     for(var i = 0; i<func.length; i++){
-        var poly = /\d+x\^d+/;
-        var spot = "" + func[i];
-        console.log("spot = " + spot);
-        console.log(poly);
-        console.log(poly.test(spot));        
-        if(poly.test(spot) == true){
-            console.log("We found a match!");
+        var poly = /\d+x\^\d+/;
+        var spot1 = func[i] + " ";
+        var spot2 = func[i] + " ";       
+        console.log("For " + i + " testing came out " + poly.test(spot1)); 
+        if(poly.test(spot1) == true){
             var coefficient = /\d+x/;
-            var exponent = /\^d+/;
-            var coef = spot.match(coefficient).map(String);
-            var expo = spot.match(exponent).map(String);
+            var exponent = /\^\d+/;
+            console.log(i + "   " + coefficient.test(spot1));
+            console.log("For " + i + " we made it to the match part.");
+            console.log("k = " + k);
+            if(spot1.match(coefficient) != null){
+                coef[k] = spot1.match(coefficient).map(String);
+                console.log(i + "     " + coef[k]);
+            }
+            if(spot2.match(exponent) != null){
+                expo[k] = spot2.match(exponent).map(String);
+                console.log(i + "     " + expo[k]);
+            }
+            k = k + 1;
+            console.log("k = " + k);
         }
-        console.log("expo = " + expo);
-        console.log("coef = " + coef);
-        var integral = findInt(coef, expo, func);
+        else{
+            var num = /\d+/;
+            if(num.test(spot1) == true){
+                console.log("YES!");
+                func[i] = 0;;
+            }
+        }
     }
-}
-function findInt(coef, expo, func){
-    return 0;
-}
-function findIntType(fx){
-    var reg = /x+/g;
-    if(reg.test(fx)==true){
-        findPieces(fx);
+    console.log("expo = " + expo);
+    console.log("coef = " + coef);
+    console.log("coef.length = " + coef.length);
+    var ders = [];
+    for(var j = 0; j < coef.length; j++){
+        var c = coef[j] + " ";
+        var e = expo[j] + " ";
+        var numC = c.slice(0, -2);
+        var numE = e.slice(1, -1);
+        console.log("numC = " + numC);
+        console.log("numE = " + numE);
+        var firDer = findDer(numC, numE);
+        console.log("We made it to the loop.");
+        ders[j] = firDer;
+    }
+    console.log(ders);
+    var q = 0;
+    if(func[0] === ""){
+        console.log("Made it to the change of index");
+        for(var p = 2; p<func.length; p = p + 2){
+            func[p] = ders[q];
+            q++;
+        }
     }
     else{
-        var numReg = /\d+/;
-        var found = fx.match(numReg);
-        if(found == 0){
-            console.log(found);
-            return found;
+        for(var p = 0; p<func.length; p = p + 2){
+            func[p] = ders[q];
+            q++;
         }
-        console.log(found + 'x');
-        return found + 'x';
     }
+    console.log(func);
+    return func;
 }
+/*
+ * The findDer function does the math for the derivatives.
+ */
+function findDer(coefficient, exponent){
+    var newCoef = coefficient*exponent;
+    var newExpo = exponent-1;
+    console.log("new exponent = " + newExpo);
+    console.log("new coefficient = " + newCoef);
+    return newCoef + "x^" + newExpo;
+}
+/*
+ * The findDerType function decides if the function inputted was
+ * just a number or a polynomial.
+ */
 function findDerType(fx){
     var reg = /x+/g;    
     if(reg.test(fx)==true){
-        //JUST NEED TO DO THIS PART!!
+        var array = findPieces(fx);
+        var der = array[0];
+        for(var i = 1; i < array.length; i++){
+            der = der + array[i];
+        }
+        return der;
     }
     else{
         console.log(0);
         return 0;
     }
 }
-function createTable(int, fx, firDer, secDer){
+function createTable(fx, firDer, secDer){
     var data =[{
-        Integral: int,
         Function: fx,
         FirstDer: firDer,
         SecondDer: secDer
       }]
-    var columnHead = ["Integral F(x)", "Function f(x)", "First Derivative f'(x)", "Second Derivative f''(x)"];
+    var columnHead = ["Function f(x)", "First Derivative f'(x)", "Second Derivative f''(x)"];
     var columnHeadings = Object.keys(data[0]);
     var columnCount = columnHeadings.length;
     var rowCount = data.length;
