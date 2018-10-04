@@ -35,12 +35,16 @@ function matched(fx){
     var integral = findInt(fx);
     var firstDer = findDer(fx);
     var secondDer = findDer(firstDer);
+    fx = parseFunc(fx);
     createTable(integral, fx, firstDer, secondDer);
+}
+function findPieces(fx){
+    
 }
 function findInt(fx){
     var reg = /x+/g;
     if(reg.test(fx)==true){
-        //JUST NEED TO DO THIS PART!!
+        findPieces(fx);
     }
     else{
         var numReg = /\d+/;
@@ -93,4 +97,9 @@ function createTable(int, fx, firDer, secDer){
     }
     document.getElementById("output").style.visibility = "visible";
     document.getElementById("Title").style.background = "lightgreen";
+}
+function parseFunc(func){
+    var numReg = /\d+/;
+    var found = func.match(numReg);
+    return found;
 }
