@@ -1,5 +1,6 @@
-body{
+#background{
     background: whitesmoke !important;
+    padding: 25px;
 }
 #Title{
     margin-top: 25px;
@@ -55,4 +56,13 @@ table{
     margin-top: 25px;
     padding: 5px;
     text-align: center;
+}
+#picture{
+    visibility: hidden;
+    margin-top: 25px;
+}
+#res{
+    visibility: hidden;
+    margin-top: 25px;
+    padding: 5px;
 }

@@ -65,12 +65,12 @@ function findPieces(fx){
     var k = 0;
     console.log("func = " + func);
     for(var i = 0; i<func.length; i++){
-        var poly = /\d+x\^\d+/;
+        var poly = /\d*x\^\d+/;
         var spot1 = func[i] + " ";
         var spot2 = func[i] + " ";       
         console.log("For " + i + " testing came out " + poly.test(spot1)); 
         if(poly.test(spot1) == true){
-            var coefficient = /\d+x/;
+            var coefficient = /\d*x/;
             var exponent = /\^\d+/;
             console.log(i + "   " + coefficient.test(spot1));
             console.log("For " + i + " we made it to the match part.");
@@ -83,7 +83,7 @@ function findPieces(fx){
                 expo[k] = spot2.match(exponent).map(String);
                 console.log(i + "     " + expo[k]);
             }
-            k = k + 1;
+            k++;
             console.log("k = " + k);
         }
         else{
@@ -91,6 +91,13 @@ function findPieces(fx){
             if(num.test(spot1) == true){
                 console.log("YES!");
                 func[i] = 0;;
+            }
+            var coefficient = /\d*x/;
+            if(coefficient.test(spot1) == true){
+                console.log("YESS!!!");
+                expo[k] = "^1";
+                coef[k] = spot1.match(coefficient).map(String);
+                k++;
             }
         }
     }
@@ -102,6 +109,9 @@ function findPieces(fx){
         var c = coef[j] + " ";
         var e = expo[j] + " ";
         var numC = c.slice(0, -2);
+        if(numC == 0){
+            numC = 1;
+        }
         var numE = e.slice(1, -1);
         console.log("numC = " + numC);
         console.log("numE = " + numE);
@@ -135,6 +145,12 @@ function findDer(coefficient, exponent){
     var newExpo = exponent-1;
     console.log("new exponent = " + newExpo);
     console.log("new coefficient = " + newCoef);
+    if(newExpo === 0){
+        return newCoef;
+    }
+    if(newExpo === 1){
+        return newCoef + "x";
+    }
     return newCoef + "x^" + newExpo;
 }
 /*
@@ -156,6 +172,9 @@ function findDerType(fx){
         return 0;
     }
 }
+/*
+ * The createTable function creates the table.
+ */
 function createTable(fx, firDer, secDer){
     var data =[{
         Function: fx,
@@ -166,7 +185,7 @@ function createTable(fx, firDer, secDer){
     var columnHeadings = Object.keys(data[0]);
     var columnCount = columnHeadings.length;
     var rowCount = data.length;
-    var table = $('<table>').appendTo('#output');
+    var table = $('<table>').prependTo('#output');
     var header = $('<thead />').appendTo(table);
     for (var i = 0; i < columnCount; i++) {
         $('<th />', { text: columnHead[i] }).appendTo(header);
@@ -185,9 +204,20 @@ function createTable(fx, firDer, secDer){
     }
     document.getElementById("output").style.visibility = "visible";
     document.getElementById("Title").style.background = "lightgreen";
+    document.getElementById("picture").style.visibility = "visible";
+    document.getElementById("res").style.visibility = "visible";
 }
+/*
+ * The parseFunc function parses the function.
+ */
 function parseFunc(func){
     var numReg = /\d+/;
     var found = func.match(numReg);
     return found;
+}
+/*
+ * The reset function reloads the page.
+ */
+function reset(){
+    location.reload();
 }
