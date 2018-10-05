@@ -11,20 +11,107 @@
     </div>
 </head>
 <body>
-    <div id="Intro">
-        <h3>About the Assignment</h3>
-        <p>
-            This assignment was assigned to get us comfortable with JavaScript.
-        </p>
-    </div>
-    
-    <div id="Intro">
-        <h3>Closing Remarks</h3>
-        <p>
-           
-        </p>
-        <p id= "closing">See you next time,</p>
-        <p id="sign">Tiffany Jansen</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Intro">
+                    <h3>About the Assignment</h3>
+                    <p>
+                        This assignment was assigned to get us comfortable with JavaScript. We were told to
+                        make a webpage that took user input and changed something on the page. I am a dual major
+                        so I am obssessed with math and decided that I was going to do simple derivatives. I ran into 
+                        a lot of issues with it, but once I figured it all out it wasn't too bad. I think I will try
+                        to pick something easier next time though...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 1: Plan and Design</h3>
+                    <p>
+                        I didn't spend too long planning out this project, but I did draw it out again
+                        (half because I had to, and half because I can't just start...). I drew out my 
+                        page and figured out what was going to happen depending on inputs. I didn't think
+                        about how hard it was going to be to parse the input, but I was just told to plan
+                        and design it, so the idea of making the coding easier didn't come to mind at all.
+                        I have included my pictures. I am not an artist, so these are very bad looking sketches, 
+                        but they get the idea across. At first I was going to try to do an integral as well, 
+                        but doing 2 derivatives seemed hard enough once I got started... When doing my drawings,
+                        I figured I should include one for each type of input, so if a person did not input a polynomial,
+                        there would be an error message of some sort. I felt I had to have a seperate drawing so that
+                        my ideas were clear. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="HW2/20181004_174257.jpg">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="HW2/20181004_174304.jpg">
+            </div>
+            <div class="col-md-6">
+                <img src="HW2/20181004_174309.jpg">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="HW2/20181004_174316.jpg">
+            </div>
+            <div class="col-md-6">
+                <h3>Step 2: Code It</h3>
+                <p>
+                    When first starting, I made the easy stuff. Like the title and other text boxes. I 
+                    then learned how to do the forms and added the text area box and button. After that, I 
+                    realized I was going to need to parse the input so I looked up Regular Expressions online
+                    and took some notes (Seen to the right) and figured out what a polynomial would look like 
+                    using one. I then had to figure out how to test it. Which was a slight issue until I found the 
+                    test() method for JavaScript and then I was good to go. At first I did the error message page because 
+                    I knew it was going to be easier than the other page (just because I didn't have to create a table or 
+                    do derivatives...). I then got the page to remove everything I didn't need. For this I used the remove()
+                    method in JavaScript. Then, I had to create the table. For this I had to Google a lot and ended up 
+                    using JQuery and a bunch of lists and stuff. After I FINALLY got that working I had to parse the polynomial 
+                    into parts and seperate the pieces into numbers and non-numbers. This took a while, like all day. The biggest
+                    issue I had was you couldn't match a regular expression twice, so I had to convert it to a string and go from there.
+                    Then, when I THOUGHT it was working someone had to ruin it by testing things that "broke" it, so I had to go back
+                    and do a bunch of bug fixes... which was awesome and took another 2 hours... But once that was done I had a nice page
+                    that does EXACTLY what I want it to. You can find a link for the page <a href="HW2/hw2.1.html">here</a>. I am super 
+                    proud of how it turned out and I hope you like it!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Step 3: Testing</h3>
+                <p>
+                    This was my favorite part. I got to share the site with friends in the class, which helped me find A LOT of bugs, but they were
+                    all super impressed by how hard my topic was. I made sure to fix all the bugs they found. The only thing that I couldn't get fixed was
+                    the note that is included on the page... If you put a number with a bunch of other letters, the program will assume you want to differentiate
+                    the number. Which is fine, but I was hoping to be able to completely remove that option, but then you couldn't just input a number... and it just
+                    didn't work. Anyway, I did it and that's all that matters. :)
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Intro">
+                    <h3>Closing Remarks</h3>
+                    <p>
+                        This assignment was really fun because I got to incorporate math into it.
+                        I know that I probably went WAY overboard on the assignment, but I couldn't 
+                        back down once I told my friends in the class about it. I am super glad that I 
+                        set aside 3 whole days to work on it, if I hadn't there is no way I would be done
+                        with it. I honestly feel like I will be ready to keep going in this class. 
+                    </p>
+                    <p id= "closing">See you next time,</p>
+                    <p id="sign">Tiffany Jansen</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>
