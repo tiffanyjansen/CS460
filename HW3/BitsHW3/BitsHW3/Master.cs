@@ -65,8 +65,6 @@ namespace BitsHW3
                 //Right child
                 QueueFrontCopy.Append('1');
                 Queue.push(QueueFrontCopy);
-
-                Number--;
             }
             return Output;
         }
