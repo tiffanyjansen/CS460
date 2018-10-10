@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> CS 460 </title>      
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="hwstyles.css">
+    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div id="blog">
+        <h1>Homework 3 Blog</h1>
+    </div>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Intro">
+                    <h3>About the Assignment</h3>
+                    <p>
+                        This assignment was assigned to get us comfortable with JavaScript. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 1: Download Visual Studio IDE</h3>
+                    <p>
+                        I downloaded it...
+                    </p>
+                </div>
+                <div id="Words">
+                    <h3>Step 2: Get Java Code Downloaded and Tested</h3>
+                    <p>
+                        I downloaded the Java code from the link on the HW3 page. I then got
+                        my command line to be able to compile and run the Java code, which took
+                        a while because I haven't used Java for a few years and I guess I screwed
+                        up my Command Prompt stuff. Once I got that working, I ran the code with an 
+                        example so I could see what the output should look like.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="HW3/JavaCodeWorking.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 3: Turn it into C# Code</h3>
+                    <p>
+                        This is the part that took the longest. The code itself wasn't too bad because Java is very
+                        similar to C#, but I had to remember to capitalize anything that was required to be capital according
+                        to C# conventions, and some of the other stuff was different than Java. For example, the Exception stuff.
+                        The Java code used super() and C# uses base() instead, they also use it in a very different way. (Seen to the right).
+                        This was the entire QueueUnderflowException class for each of the types. I was confused by some of the other differences 
+                        between Java and C#, like the "for each" loop (Shown Directly Below). It was different enough that I had to Google the 
+                        information about it to make sure that I did it the right way. The default() method threw me off too. In Java it's
+                        unneccesary, but when using C# it will give an error since we aren't sure what type of variable the "T" variable is. 
+                        At first I thought I had to use the default method everywhere, but then I realized it was only in 1 specific spot that it
+                        was required. Other than that I found C# to be very similar to Java which made translating the application super simple. :)
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="Code">
+                    <h4>Java Code</h4>
+                    <p>
+                        public class QueueUnderflowException extends RuntimeException <br>
+                        { <br>
+                            public QueueUnderflowException()
+                            {
+                                super();
+                            } <br>
+                            
+                            public QueueUnderflowException(String message)
+                            {
+                                super(message);
+                            }<br>
+                        }
+                    </p>
+                    <h4>C# Code</h4>
+                    <p>
+                        class QueueUnderflowException : InvalidOperationException <br>
+                        {<br>
+                            public QueueUnderflowException()
+                                :base()
+                            {
+                            }<br>
+                        
+                            public QueueUnderflowException(string message)
+                                :base(message)
+                            {
+                            }<br>
+                        }<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Code">
+                    <h4>Java Code</h4>
+                    <p>
+                        for(String s : output)<br>
+                        {<br>
+                            for(int i = 0; i < maxLength - s.length(); ++i)<br>
+                            {<br>
+                                System.out.print(" ");<br>
+                            }<br>
+                            System.out.println(s);<br>
+                        }<br>
+                    </p>
+                    <h4>C# Code</h4>
+                    <p>
+                        foreach(string s in Output)<br>
+                        {<br>
+                            for(int i = 0; i < MaxLength - s.Length; ++i)<br>
+                            {<br>
+                                System.Console.Write(" ");<br>
+                            }<br>
+                            System.Console.WriteLine(s);<br>
+                        }
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="Code">
+                    <h4>Java Code</h4>
+                    <p>
+                    </p>
+                    <h4>C# Code</h4>
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Words">
+                    <h3>Step 4: Testing</h3>
+                    <p>
+                        This is where I just made sure the output for the C# code was the same as the Java code.
+                        It was really fun to do, once I figured out all of the C# stuff. Honestly, it wasn't too hard of an assignment.
+                    </p>
+                </div>    
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <img src="HW3/CCodeWorking.JPG">
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Intro">
+                    <h3>Closing Remarks</h3>
+                    <p>
+                        This assignment was really fun because I got to incorporate math into it.
+                        I know that I probably went WAY overboard on the assignment, but I couldn't 
+                        back down once I told my friends in the class about it. I am super glad that I 
+                        set aside 3 whole days to work on it, if I hadn't there is no way I would be done
+                        with it. I honestly feel like I will be ready to keep going in this class. 
+                    </p>
+                    <p id= "closing">See you next time,</p>
+                    <p id="sign">Tiffany Jansen</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

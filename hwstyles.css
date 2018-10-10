@@ -46,7 +46,7 @@ img{
     margin-bottom: 25px;
     margin-right: 25px;
     margin-left: 25px;
-    margin-top: 25px
+    margin-top: 25px;
 }
 #pic{
     margin-right: 25px;
@@ -65,4 +65,12 @@ img{
 #sign{
     text-align: center;
     font-family: "Brush Script MT";
+}
+#Code{
+    background: black;
+    color: white;
+    padding: 25px;
+}
+#Code h4{
+    text-align: center;
 }
