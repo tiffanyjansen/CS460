@@ -1,7 +1,0 @@
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\obj\Debug\BitsHW3.csprojAssemblyReference.cache
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\obj\Debug\BitsHW3.csproj.CoreCompileInputs.cache
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\bin\Debug\BitsHW3.exe.config
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\bin\Debug\BitsHW3.exe
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\bin\Debug\BitsHW3.pdb
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\obj\Debug\BitsHW3.exe
-C:\Users\tjans\Documents\JuniorYear\Fall2018\CS460\CS460\HW3\BitsHW3\BitsHW3\obj\Debug\BitsHW3.pdb
