@@ -14,7 +14,7 @@ namespace BitsHW3
     /// here are easier ways to generate a list of binary values, but this technique
     ///  is very general and a good one to remember for other uses.
     /// </summary>
-    class Main
+    class Master
     {
         /// <summary>
         /// Print the binary representation of all numbers from 1 up to Number.
@@ -50,11 +50,11 @@ namespace BitsHW3
             Queue.push(new StringBuilder("1"));
 
             //BFS
-            while(Number > 0)
+            while(Number-- > 0)
             {
                 //print out the frot of queue
                 StringBuilder QueueFront = Queue.pop();
-                Output.AddAfter(QueueFront.ToString());
+                Output.AddLast(QueueFront.ToString());
 
                 //Make a copy
                 StringBuilder QueueFrontCopy = new StringBuilder(QueueFront.ToString());
@@ -71,7 +71,41 @@ namespace BitsHW3
             return Output;
         }
 
-        //Do the Main Method
+        /// <summary>
+        /// Driver program to test above function
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
+        {
+            int Number = 10;
+            if(args.Length < 1)
+            {
+                System.Console.WriteLine("Please invoke with the max value to print binary up to, like this:");
+                System.Console.WriteLine("\tMaster 12");
+                return;
+            }
+            try
+            {
+                Number = System.Convert.ToInt32(args[0]);
+            }
+            catch(NotFiniteNumberException)
+            {
+                System.Console.WriteLine("I'm sorry, I can't understand the number: " + args[0]);
+                return;
+            }
 
+            LinkedList<string> Output = GenerateBinaryRepresentationList(Number);
+            //Print it right justified. Longest string is the last one.
+            //Print enough spaces to move it over the correct distance.
+            int MaxLength = Output.Last.Value.Length;
+            foreach(string s in Output)
+            {
+                for(int i = 0; i < MaxLength - s.Length; ++i)
+                {
+                    System.Console.Write(" ");
+                }
+                System.Console.WriteLine(s);
+            }
+        }
     }
 }

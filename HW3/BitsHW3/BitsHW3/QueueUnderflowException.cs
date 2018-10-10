@@ -9,13 +9,13 @@ namespace BitsHW3
     class QueueUnderflowException : InvalidOperationException
     {
         public QueueUnderflowException()
+            :base()
         {
-            base();
         }
 
         public QueueUnderflowException(string message)
+            :base(message)
         {
-            base(message);
         }
     }
 }

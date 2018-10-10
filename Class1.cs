@@ -22,7 +22,7 @@ namespace BitsHW3
 
         public T push(T element)
         {
-            if(element == null)
+            if (element == null)
             {
                 throw new ArgumentNullException();
             }
@@ -44,12 +44,12 @@ namespace BitsHW3
 
         public T pop()
         {
-            T Temp = default(T);
+            T Temp = null;
             if (isEmpty())
             {
                 throw new QueueUnderflowException("The queue was empty when pop was invoked.");
             }
-            else if(Front == Rear)
+            else if (Front == Rear)
             {
                 // one item in queue
                 Temp = Front.Data;
@@ -67,7 +67,7 @@ namespace BitsHW3
 
         public bool isEmpty()
         {
-            if(Front == null && Rear == null)
+            if (Front == null && Rear == null)
             {
                 return true;
             }
