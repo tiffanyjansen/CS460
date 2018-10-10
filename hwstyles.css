@@ -74,3 +74,12 @@ img{
 #Code h4{
     text-align: center;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+#Down{
+    margin-top: 75px;
+}
