@@ -13,16 +13,16 @@ namespace ColorChooser_Converter.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult ColorChooser()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your Color Chooser page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Converter()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your Converter page.";
 
             return View();
         }
