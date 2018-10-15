@@ -259,3 +259,12 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+#The Ones I added
+*.sln
+*.nupkg
+*.EXE
+*.pdb
+*.config
+*.xml
+*.x
