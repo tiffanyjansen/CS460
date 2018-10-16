@@ -22,7 +22,7 @@ namespace ColorChooser_Converter.Controllers
 
         public ActionResult Converter()
         {
-            ViewBag.Message = "Your Converter page.";
+            ViewBag.Message = "Convert Miles to Metric";
 
             return View();
         }
