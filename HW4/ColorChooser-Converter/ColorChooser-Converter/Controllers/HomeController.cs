@@ -26,5 +26,11 @@ namespace ColorChooser_Converter.Controllers
 
             return View();
         }
+        public ActionResult ConvertSubmit()
+        {
+            ViewBag.Message = "Convert Miles to Metric";
+
+            return View();
+        }
     }
 }

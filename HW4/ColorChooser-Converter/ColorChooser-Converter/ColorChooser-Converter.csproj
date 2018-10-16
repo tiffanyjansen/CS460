@@ -192,6 +192,7 @@
     <Content Include="Views\Home\Converter.cshtml" />
     <Content Include="Views\Home\ColorChooser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ConvertSubmit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
