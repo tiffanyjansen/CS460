@@ -3,24 +3,26 @@
 }
 <h2>@ViewBag.Message</h2>
 
-<div class="row">
-    <div class="col-md-6">
-        <h3>Miles:</h3>
-        <input name="miles" type="text">
+<form method="get" action="">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Miles:</h3>
+            <input name="miles" type="text">
+        </div>
+        <div class="col-md-6">
+            <h3>Select a Unit</h3>
+            <fieldset class="col-md-6">
+                <input type="radio" name="unit" value="millimeters" checked />millimeters<br />
+                <input type="radio" name="unit" value="centimeters" />centimeters<br />
+                <input type="radio" name="unit" value="meters" />meters<br />
+                <input type="radio" name="unit" value="kilometers" />kilometers<br />
+            </fieldset>
+        </div>
     </div>
-    <div class="col-md-6">
-        <h3>Select a Unit</h3>
-        <fieldset class="col-md-6">
-            <input type="radio" name="unit" value="millimeters" checked />millimeters<br />
-            <input type="radio" name="unit" value="centimeters" />centimeters<br />
-            <input type="radio" name="unit" value="meters" />meters<br />
-            <input type="radio" name="unit" value="kilometers" />kilometers<br />
-        </fieldset>
+    <br /><br />
+    <div class="row">
+        <div class="col-md-12 col-md-offset-5">
+            <p><input type="submit" value="Convert" /></p>
+        </div>
     </div>
-</div>
-<br /><br />
-<div class="row">
-    <div class="col-md-12 col-md-offset-5">
-        <p><a class="btn btn-primary btn-lg" @Html.ActionLink("Convert", "ConvertSubmit", "Home")</a></p>
-    </div>
-</div>
+</form>
