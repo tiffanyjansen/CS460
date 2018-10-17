@@ -52,7 +52,7 @@ namespace ColorChooser_Converter.Controllers
 
                     //Make this work correctly with the stuff we are trying to do.
                     //I really want to pass parameters, but I don't know if that will work...
-                    return View(miles, kiloNum);
+                    return View();
                 }
                 else if(unit == "meter")
                 {
