@@ -19,8 +19,12 @@
     <button class="btn btn-primary" type="submit">Mix Colors</button>
 }
 <br /><br />
-        <div style="@ViewBag.FirstColor"></div>
-        @ViewBag.Plus
-        <div style="@ViewBag.SecondColor"></div>
-        @ViewBag.Equals
-        <div style="@ViewBag.MixedColor"></div>
+<div class="containter">
+    <div class="row">
+        <div class="col-md-1" style="@ViewBag.FirstColor"></div>
+        <div class="col-md-1" style="text-align:center; font-size:45px; font-display:block; margin-top:10px;">@ViewBag.Plus</div>
+        <div class="col-md-1" style="@ViewBag.SecondColor"></div>
+        <div class="col-md-1" style="text-align:center; font-size:45px; font-display:block; margin-top:10px;">@ViewBag.Equals</div>
+        <div class="col-md-1"style="@ViewBag.MixedColor"></div>
+    </div>
+</div>
