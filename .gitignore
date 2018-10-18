@@ -268,3 +268,5 @@ __pycache__/
 *.config
 *.xml
 *.x
+*.exe
+*.dll
