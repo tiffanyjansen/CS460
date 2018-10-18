@@ -28,7 +28,13 @@ namespace ColorChooser_Converter.Controllers
 
             Color mixedColor = BlendColors(firstColor, secondColor);
 
-            ViewBag.Color = firstColor + " + " + secondColor + " = " + mixedColor;
+            string[] colors = ColorsToString(firstColor, secondColor, mixedColor);
+
+            ViewBag.FirstColor = "width: 80px; height: 80px; border: 1px solid #FFFFFF; background: " + colors[0] + "; ";
+            ViewBag.Plus = "+";
+            ViewBag.SecondColor = "width: 80px; height: 80px; border: 1px solid #FFFFFF; background: " + colors[1] + "; "; ;
+            ViewBag.Equals = "=";
+            ViewBag.MixedColor = "width: 80px; height: 80px; border: 1px solid #FFFFFF; background: " + colors[2] + "; "; ;
            
             return View();
         }
@@ -38,6 +44,16 @@ namespace ColorChooser_Converter.Controllers
             byte g = (byte)((firstColor.G * 0.5) + secondColor.G * 0.5);
             byte b = (byte)((firstColor.B * 0.5) + secondColor.B * 0.5);
             return Color.FromArgb(r, g, b);
+        }
+        public string[] ColorsToString(Color firstColor, Color secondColor, Color mixedColor)
+        {
+            string firstHtml = System.Drawing.ColorTranslator.ToHtml(firstColor);
+            string secondHtml = System.Drawing.ColorTranslator.ToHtml(secondColor);
+            string mixedHtml = System.Drawing.ColorTranslator.ToHtml(mixedColor);
+
+            string[] colors = { firstHtml, secondHtml, mixedHtml };
+
+            return colors;
         }
     }
 }
