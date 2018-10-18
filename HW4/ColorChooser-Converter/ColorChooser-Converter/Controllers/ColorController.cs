@@ -6,15 +6,12 @@ using System.Web.Mvc;
 
 namespace ColorChooser_Converter.Controllers
 {
-    public class HomeController : Controller
+    public class ColorController : Controller
     {
+        // GET: Color
         public ActionResult Index()
         {
-            return View();
-        }
-        public ActionResult Converter()
-        {
-            ViewBag.Message = "Your Converter page.";
+            ViewBag.Message = "Create a New Color";
 
             return View();
         }
