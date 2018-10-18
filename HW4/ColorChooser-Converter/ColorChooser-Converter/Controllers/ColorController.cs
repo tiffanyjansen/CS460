@@ -30,11 +30,11 @@ namespace ColorChooser_Converter.Controllers
 
             string[] colors = ColorsToString(firstColor, secondColor, mixedColor);
 
-            ViewBag.FirstColor = "width: 80px; height: 80px; border: 1px solid #FFFFFF; background: " + colors[0] + "; ";
+            ViewBag.FirstColor = "width: 80px; height: 80px; border: 1px solid #0F0F0F; background: " + colors[0] + "; ";
             ViewBag.Plus = "+";
-            ViewBag.SecondColor = "width: 80px; height: 80px; border: 1px solid #FFFFFF; background: " + colors[1] + "; "; ;
+            ViewBag.SecondColor = "width: 80px; height: 80px; border: 1px solid #0F0F0F; background: " + colors[1] + "; "; ;
             ViewBag.Equals = "=";
-            ViewBag.MixedColor = "width: 80px; height: 80px; border: 1px solid #FFFFFF; background: " + colors[2] + "; "; ;
+            ViewBag.MixedColor = "width: 80px; height: 80px; border: 1px solid #0F0F0F; background: " + colors[2] + "; "; ;
            
             return View();
         }
