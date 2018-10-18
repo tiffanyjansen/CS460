@@ -9,9 +9,19 @@ namespace ColorChooser_Converter.Controllers
     public class ColorController : Controller
     {
         // GET: Color
-        public ActionResult Index()
+        public ActionResult Create()
         {
             ViewBag.Message = "Create a New Color";
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(string first, string second)
+        {
+            ViewBag.Message = "Create a New Color";
+
+
 
             return View();
         }
