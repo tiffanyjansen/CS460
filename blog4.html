@@ -10,7 +10,7 @@
         <h1>Homework 4 Blog</h1>
     </div>
 </head>
-<body>
+<body style="background-color:lightgray;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -35,6 +35,7 @@
                         we will just stick to the other stuff.
                     </p>
                 </div>
+                <img style="margin-left: 150px; margin-top: 75px;" src="HW3/check.jpg">
             </div>
             <div class="col-md-6">
                 <div id="Words">
@@ -44,36 +45,126 @@
                         that for all of my implementation of the Mile Converter and most of the Home Page.
                         I wasn't really sure what to do at first, but once I got into it, everything made more sense.
                         The Controller does the work and the View shows the page. Controller = C#. View = HTML.
-                        
+                                        
                         <br><br>
-
+                
                         Since we used the MVC template for the project all I had to do for the home page was edit the text and fix
                         the buttons. The links for the buttons looked like: "@Html.ActionLink("Try it Out", "Converter", "Home")"
                         Where "Try it Out" is the text shown on the button, "Converter" is the View/Method we want, and "Home" is the 
                         Controller we are using. (I only put that in here so I remember later).
-
+                
                         <br><br>
-
+                
                         I also had to go into the _Layout.cshtml in order to fix the Nav Bar, where I used the same links to get
                         from page to page.
                     </p>
                 </div>
             </div>
         </div>
+        <div class="row">  
+            <div class="col-md-12">
+                <img style="margin-left: 150px;" src="HW4/IndexPage.JPG"> 
+            </div>
+        </div>
         <div class="row">
-                <div class="col-md-6">
-                        <div id="Words">
-                            <h3>Step ??: Merge Branches in Git</h3>
-                            <p>
-                                So, I created branches (2) and used them, but I guess I forgot
-                                to advance Master so the "colorChooser" branch (the one I merged first) 
-                                didn't end up showing up so it looks like I just used one branch, but I swear I 
-                                didn't. It was intresting to see how the merge conflict showed up because it just 
-                                said it couldn't add whatever file it was because of the conflict, when I looked in the file 
-                                it just had random lines in places and I got to choose which one to keep. I was impressed.
-                            </p>
-                        </div>
-                    </div>
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 3: Implement the Mile Converter</h3>
+                    <p>
+                        The first thing I did for the Mile Converter was create the form. This part wasn't too bad until I had to 
+                        actually make the form do something. Last week we used Javascript to make it work, but this week we were not allowed
+                        to. I ended up looking up how to make the form do something. According to the internet I needed something like: 
+                        'form method="get"' to make the form do something. We were expected to use the HttpGet function to make it work. I implemented
+                        this part in my Converter() function in the HomeController. The Code can be found below. Basically what it does is use the 
+                        Query Strings and decide which value to use. The code can be found below. I also have included screenshots with the what it does.
+                        I did not include a handler if someone adds a letter to the query string for miles, but I did handle the error for if someone were 
+                        to change the units one.    
+                        
+                        <br><br> 
+                        
+                        Now, if someone puts a number into the box and chooses a unit the page will work perfectly fine. If the person does 
+                        not put in anything into the miles the page will work, but the output will not exist. If someone goes and changes something in the query
+                        string at the top, as long as they don't put a letter into the miles one, the page will work. Examples of all 3 can be found below (in order).
+                        I have also included the page in general (which will be the first one) so you know what it's supposed to look like when it first loads.
+                    </p>
+                </div>
+                <img src="HW4/meme.jpg">
+            </div>
+            <div class="col-md-6">
+                <div id="Code">
+                    <p>
+                        public ActionResult Converter()<br>
+                        {<br>
+                            ViewBag.Message = "Convert Miles to Metric";<br><br>
+                                    
+                            //Get Query Strings<br>
+                            string miles = Request.QueryString["miles"];<br>
+                            string unit = Request.QueryString["unit"];<br><br>
+                                    
+                            //Find answer, hopefully...<br>
+                            ViewBag.Answer = calculateAnswer(miles, unit);<br>
+                                   
+                            return View();<br>
+                        }<br><br>
+                        public string calculateAnswer(string miles, string unit)<br>
+                        {<br>
+                            if (miles == null || miles == "")<br>
+                            {
+                                return "";
+                            }<br><br>
+                            //Do converstion.<br>
+                            double milesNum = double.Parse(miles);<br>
+                            double kiloNum = milesNum * 1.60934;<br>
+                            double meterNum = kiloNum * 1000;<br>
+                            double centiNum = meterNum * 100;<br>
+                            double milliNum = centiNum * 10;<br><br>
+                            if(unit == "kilometers")<br>
+                            {
+                                return miles + " miles is equal to " + kiloNum + " " + unit;
+                            }<br>
+                            else if (unit == "meters")<br>
+                            {
+                                return miles + " miles is equal to " + meterNum + " " + unit;
+                            }<br>
+                            else if (unit == "centimeters")<br>
+                            {
+                                return miles + " miles is equal to " + centiNum + " " + unit;
+                            }<br>
+                            else if (unit == "millimeters")<br>
+                            {
+                                return miles + " miles is equal to " + milliNum + " " + unit;
+                            }<br>
+                            else<br>
+                            {
+                                return "";
+                            }<br>
+                        }<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <img style="margin-left: 150px;" src="HW4/ConverterPage.JPG"> <br><br>
+                    <img style="margin-left: 150px;" src="HW4/Normal.JPG"> <br><br>
+                    <img style="margin-left: 150px;" src="HW4/NoMiles.JPG"> <br><br>
+                    <img style="margin-left: 150px;" src="HW4/WrongUnit.JPG"> <br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step ??: Merge Branches in Git</h3>
+                    <p>
+                        So, I created branches (2) and used them, but I guess I forgot
+                        to advance Master so the "colorChooser" branch (the one I merged first) 
+                        didn't end up showing up so it looks like I just used one branch, but I swear I 
+                        didn't. It was intresting to see how the merge conflict showed up because it just 
+                        said it couldn't add whatever file it was because of the conflict, when I looked in the file 
+                        it just had random lines in places and I got to choose which one to keep. I was impressed.
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
