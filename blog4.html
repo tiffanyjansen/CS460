@@ -154,7 +154,104 @@
         <div class="row">
             <div class="col-md-6">
                 <div id="Words">
-                    <h3>Step ??: Merge Branches in Git</h3>
+                    <h3>Step 4: Implement the Color Chooser</h3>
+                    <p>
+                        This one was a little more complicated than the Mile Converter. We were asked to use HttpPost instead of HttpGet
+                        this time and we were asked to use Razor shortcuts to create our form. The code for the form wasn't too hard to find around.
+                        I did get some help from my Byte Club buddies for some of it too, but that was still the "easy" part of this implementation.
+                        The Razor code for the form is shown on the right. The text boxes were the same so I only included one in my list. The first
+                        parameter in the textbox one is the name of the variable, the second is null, and the last tells what the box is supposed to do.
+                        The patter makes sure that the textbox only accepts Hex values so there are no errors for the C# code.
+                        
+                        <br><br>
+
+                        Now, when using a HttpPost method you have to include <br>"[HttpPost]" above the name of the function and make sure that the 
+                        function includes some parameters so it doesn't crash. (When I first started all it did was crash and I got super confused...) 
+                        The logic behind the color chooser was a little harder to do, but once I got that down (with lots of Googling and help from Byte 
+                        Club Members) the rest seemed pretty simple. At the time it wasn't, but looking back it all makes sense. I found the blend colors
+                        method online, but it makes sense. My algorithm is different from everyone elses because I didn't want to get white every single time.
+                        I also don't like to write everything in one function, which is why I used 3. 
+
+                        <br><br>
+
+                        The output of this function creates colored boxes at the bottom of the page. Since there are no query strings
+                        I didn't have to test for any bugs (I hope...).This made the testing much easier. There are only 2 possible outputs 
+                        for the View. The main page with no colors on it and the page with the colored boxes on them. Screenshots of both can be found
+                        below. 
+                    </p>
+                </div>
+                <div id="Code">
+                    <p>
+                        public string[] ColorsToString(Color firstColor, Color secondColor, Color mixedColor)<br>
+                        {<br>
+                            string firstHtml = System.Drawing.ColorTranslator.ToHtml(firstColor);<br>
+                            string secondHtml = System.Drawing.ColorTranslator.ToHtml(secondColor);<br>
+                            string mixedHtml = System.Drawing.ColorTranslator.ToHtml(mixedColor);<br>
+                            <br>
+                            string[] colors = { firstHtml, secondHtml, mixedHtml };<br>
+                            <br>
+                            return colors;<br>
+                        }
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="Code">
+                    <h3>Razor Shortcuts</h3>
+                    <p>
+                        @using (Html.BeginForm())<br>
+                        @Html.TextBox("first", null, new { @class = "form-control", pattern= "#[0-9-Fa-f]{6}"})<br>
+                    </p>
+
+                    <br><br>
+                    
+                    <h3>C# Code for HttpPost Function</h3>
+                    <p>
+                        [HttpPost]<br>
+                        public ActionResult Create(string first, string second)<br>
+                        {<br>
+                            ViewBag.Message = "Create a New Color";<br>
+                            <br>
+                            Color firstColor = ColorTranslator.FromHtml(first);<br>
+                            Color secondColor = ColorTranslator.FromHtml(second);<br>
+
+                            Color mixedColor = BlendColors(firstColor, secondColor);<br>
+                            <br>
+                            string[] colors = ColorsToString(firstColor, secondColor, mixedColor);<br>
+
+                            ViewBag.FirstColor = "width: 80px; height: 80px; border: 1px solid #0F0F0F; background: " + colors[0] + "; ";<br>
+                            ViewBag.Plus = "+";<br>
+                            ViewBag.SecondColor = "width: 80px; height: 80px; border: 1px solid #0F0F0F; background: " + colors[1] + "; "; ;<br>
+                            ViewBag.Equals = "=";<br>
+                            ViewBag.MixedColor = "width: 80px; height: 80px; border: 1px solid #0F0F0F; background: " + colors[2] + "; "; ;<br>
+                            <br>
+                            return View();<br>
+                        }<br><br>
+                        public Color BlendColors(Color firstColor, Color secondColor)<br>
+                        {<br>
+                            byte r = (byte)((firstColor.R * 0.5) + secondColor.R * 0.5);<br>
+                            byte g = (byte)((firstColor.G * 0.5) + secondColor.G * 0.5);<br>
+                            byte b = (byte)((firstColor.B * 0.5) + secondColor.B * 0.5);<br>
+                            return Color.FromArgb(r, g, b);<br>
+                        }<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img style="margin-left: 200px;" src="HW4/ChooserPage.JPG">
+            </div>
+        </div>
+        <div class="row">  
+            <div class="col-md-12">
+                <img style="margin-left: 200px;" src="HW4/RunningChooser.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Words">
+                    <h3>Step 5: Merge Branches in Git</h3>
                     <p>
                         So, I created branches (2) and used them, but I guess I forgot
                         to advance Master so the "colorChooser" branch (the one I merged first) 
