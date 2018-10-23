@@ -13,9 +13,9 @@ namespace CampusApartments.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Form()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "You may place your Maintenance Requests here.";
 
             return View();
         }

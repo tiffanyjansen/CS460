@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Table]
+﻿CREATE TABLE Requests
 (
 	[RequestID] INT NOT NULL PRIMARY KEY,
 	FirstName VARCHAR(10)  NOT NULL, 
@@ -7,5 +7,5 @@
 	ApartmentName VARCHAR(25) NOT NULL,
 	UnitNumber INT NOT NULL,
 	MaintenanceRequired VARCHAR(100) NOT NULL,
-	TimeOfRequest DATETIME NOT NULL
-)
+	TimeOfRequest DATE NOT NULL
+);
