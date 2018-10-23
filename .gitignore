@@ -261,12 +261,5 @@ __pycache__/
 *.pyc
 
 #The Ones I added
-*.sln
-*.nupkg
-*.EXE
-*.pdb
-*.config
-*.xml
-*.x
 *.exe
 *.dll
