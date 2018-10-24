@@ -70,7 +70,6 @@
         <div class="col-md-12">
             <div class="form-group">
                 <div class="col-md-12">
-                    <label for="textArea"></label>
                     @Html.EditorFor(model => model.MaintenanceRequired, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.MaintenanceRequired, "", new { @class = "text-danger" })
                     <textarea class="form-control" id="textArea" rows="5" placeholder="Explanation of request, maintenance required, or complaint. Please be specific."></textarea>
