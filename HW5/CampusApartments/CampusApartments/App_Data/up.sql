@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[Requests]
 	[PhoneNumber] NVARCHAR(15) NOT NULL,
 	[ApartmentName] NVARCHAR(25) NOT NULL,
 	[UnitNumber] INT NOT NULL,
-	[MaintenanceRequired] NVARCHAR(1000) NOT NULL,
+	[MaintenanceRequired] NVARCHAR(10000) NOT NULL,
     [TimeOfRequest]        DateTime            NOT NULL,
     CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([RequestID] ASC)
 );
