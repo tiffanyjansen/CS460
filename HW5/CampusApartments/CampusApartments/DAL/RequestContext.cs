@@ -9,7 +9,7 @@ namespace CampusApartments.DAL
 {
     public class RequestContext : DbContext
     {
-        public RequestContext() : base("name=SecondTry")
+        public RequestContext() : base("name=TheRequests")
         {
 
         }
