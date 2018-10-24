@@ -28,6 +28,7 @@ namespace CampusApartments.Models
         public int UnitNumber { get; set; }
 
         [Required]
+        [StringLength(1000)]
         public string MaintenanceRequired { get; set; }
 
         public DateTime TimeOfRequest
