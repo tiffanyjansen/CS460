@@ -8,6 +8,9 @@ namespace CampusApartments.Models
 {
     public class Request
     {
+        [Key]
+        public int RequestID { get; set; }
+
         [Required]
         [StringLength(25)]
         [Display(Name = "First Name")]
