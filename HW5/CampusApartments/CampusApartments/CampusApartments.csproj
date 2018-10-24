@@ -154,9 +154,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\MaintenanceRequests.mdf" />
-    <Content Include="App_Data\MaintenanceRequests_log.ldf">
-      <DependentUpon>MaintenanceRequests.mdf</DependentUpon>
+    <Content Include="App_Data\Requests.mdf" />
+    <Content Include="App_Data\Requests_log.ldf">
+      <DependentUpon>Requests.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
