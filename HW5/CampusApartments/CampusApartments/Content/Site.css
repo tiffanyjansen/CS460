@@ -31,10 +31,10 @@ textarea {
     margin-top: 25px;
     background-color: darkred;
     color: white;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
 }
 .center {
     text-align: center;
     font: large impact;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
 }
