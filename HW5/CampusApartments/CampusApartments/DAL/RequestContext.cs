@@ -11,7 +11,7 @@ namespace CampusApartments.DAL
     {
         public RequestContext() : base("name=TheRequests")
         {
-
+            
         }
 
         public virtual DbSet<Request> Requests { get; set; }

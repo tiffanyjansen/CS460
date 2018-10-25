@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Tiffany Jansen</title>
+    <title>@ViewBag.Title Campus Apartments</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -21,8 +21,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="@ViewBag.Home">@Html.ActionLink("Home Page", "Index", "Home")</li>
-                    <li class="@ViewBag.About">@Html.ActionLink("Maintenance Request Form", "Create", "Requests")</li>
-                    <li class="@ViewBag.Contact">@Html.ActionLink("Maintenance Requests Made", "Index", "Requests")</li>
+                    <li class="@ViewBag.MaintanceReq">@Html.ActionLink("Maintenance Request Form", "Create", "Requests")</li>
+                    <li class="@ViewBag.MaintanceFor">@Html.ActionLink("Maintenance Requests Made", "Index", "Requests")</li>
                 </ul>
             </div>
         </div>
