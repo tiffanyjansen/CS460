@@ -209,13 +209,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Form.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Requests\Create.cshtml" />
-    <Content Include="Views\Requests\Delete.cshtml" />
-    <Content Include="Views\Requests\Details.cshtml" />
-    <Content Include="Views\Requests\Edit.cshtml" />
     <Content Include="Views\Requests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
