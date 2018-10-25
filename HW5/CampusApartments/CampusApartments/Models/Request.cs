@@ -37,6 +37,7 @@ namespace CampusApartments.Models
 
         [Required]
         [StringLength(1000)]
+        [Display(Name = "Maintenance Required")]
         public string MaintenanceRequired { get; set; }
 
         public DateTime TimeOfRequest
@@ -48,19 +49,7 @@ namespace CampusApartments.Models
             }
         }
 
-        public bool Check
-        {
-            get { return Permission == 1; }
-            set
-            {
-                if (value)
-                    Permission = 1;
-                else
-                    Permission = 0;
-            }
-        }
-
         [Display(Name = "Permission to enter if no one answers door? Check for yes.")]
-        public int Permission { get; set; }
+        public bool Permission { get; set; }
     }
 }

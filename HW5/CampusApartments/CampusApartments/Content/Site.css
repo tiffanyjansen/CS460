@@ -38,3 +38,10 @@ textarea {
     text-align: center;
     font: large impact;
 }
+
+#Table {
+    font: medium impact;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    text-align: center;
+}
