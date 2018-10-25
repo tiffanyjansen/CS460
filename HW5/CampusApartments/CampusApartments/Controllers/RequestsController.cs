@@ -18,7 +18,7 @@ namespace CampusApartments.Controllers
         // GET: Requests
         public ActionResult Index()
         {
-            return View(db.Requests.OrderByDescending(model => model.TimeOfRequest).ToList());
+            return View(db.Requests.ToList());
         }
 
         // GET: Requests/Details/5
