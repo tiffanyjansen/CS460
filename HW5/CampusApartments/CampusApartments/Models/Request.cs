@@ -48,7 +48,13 @@ namespace CampusApartments.Models
             }
         }
 
+        public bool Check
+        {
+            get { return Permission == 1; }
+            set { Permission = value ? 1 : 0; }
+        }
+
         [Display(Name = "Permission to enter if no one answers door? Check for yes.")]
-        public bool Permission { get; set; }
+        public int Permission { get; set; }
     }
 }
