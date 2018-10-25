@@ -9,7 +9,7 @@ CREATE TABLE [dbo].[Requests]
 	[UnitNumber] INT NOT NULL,
 	[MaintenanceRequired] NVARCHAR(1000) NOT NULL,
     [TimeOfRequest]        DateTime            NOT NULL,
-	[Permission]		INT		NOT NULL,
+	[Permission]		BIT		NOT NULL,
     CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([RequestID] ASC)
 );
 
