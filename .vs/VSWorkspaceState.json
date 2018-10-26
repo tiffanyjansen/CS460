@@ -7,8 +7,10 @@
     "\\HW5",
     "\\HW5\\CampusApartments",
     "\\HW5\\CampusApartments\\CampusApartments",
-    "\\HW5\\CampusApartments\\CampusApartments\\App_Data"
+    "\\HW5\\CampusApartments\\CampusApartments\\Images",
+    "\\HW5\\CampusApartments\\CampusApartments\\Views",
+    "\\HW5\\CampusApartments\\CampusApartments\\Views\\Requests"
   ],
-  "SelectedNode": "\\HW5\\CampusApartments\\CampusApartments\\App_Data\\up.sql",
+  "SelectedNode": "\\HW5\\CampusApartments\\CampusApartments\\fonts",
   "PreviewInSolutionExplorer": false
 }
