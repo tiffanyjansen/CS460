@@ -10,7 +10,7 @@
         <h1>Homework 5 Blog</h1>
     </div>
 </head>
-<body>
+<body style="background-color:lightgray;">
     <div id="Intro">
         <h3>About the Assignment</h3>
         <p>
@@ -47,7 +47,60 @@
                     rest wasn't so bad. Creating it was harder than expected though because you can't just "Add Table" you have to write it all in a query
                     and make sure it works before you can even move on. I had a lot of errors because I haven't used SQL in a while and I wasn't sure what
                     I was doing. Once he explained it in class everything made sense, but of course I had to work on it before Wednesday so I was hitting my 
-                    head against a wall from Sunday to Wednesday, but that's totally fine. 
+                    head against a wall from Sunday to Wednesday, but that's totally fine. The SQL code to create and drop the table can be found below the picture 
+                    of the home page.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <img style="margin-left: 50px;" src="HW5/homepage.JPG">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Code" style="margin-left: 50px;">
+                <h4>Up.SQL</h4>
+                <p>
+                    --Requests Table<br>
+                    CREATE TABLE [dbo].[Requests]<br>
+                    (<br>
+	                    [RequestID]        INT IDENTITY (1,1)    NOT NULL, <br>
+                        [FirstName]    NVARCHAR(64)        NOT NULL, <br>
+                        [LastName]    NVARCHAR(128)        NOT NULL, <br>
+	                    [PhoneNumber] NVARCHAR(15) NOT NULL, <br>
+	                    [ApartmentName] NVARCHAR(25) NOT NULL, <br>
+	                    [UnitNumber] INT NOT NULL, <br>
+	                    [MaintenanceRequired] NVARCHAR(1000) NOT NULL, <br>
+                        [TimeOfRequest]        DateTime            NOT NULL, <br>
+	                    [Permission]		BIT		NOT NULL,<br>
+                        CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([RequestID] ASC)<br>
+                    );<br>
+                    <br>
+                    INSERT INTO [dbo].[Requests] (FirstName, LastName, PhoneNumber, ApartmentName, UnitNumber, MaintenanceRequired, TimeOfRequest, Permission) VALUES <br>
+                        ('Dean', 'Chase', '6094529112', 'Cedar', 5, 'The toilet is plugged.','2018-10-22 15:20:00', '1'), <br>
+                        ('Muriel', 'Shaffer', '9442120880', 'Willow', 1, 'The kitchen sink is leaking.','2018-10-12 14:00:00', '0'),<br>
+                        ('Erasmo', 'Brandt', '6602952306', 'Cedar', 2, 'I just moved in and like 10 of the light bulbs are dead. The bathroom upstairs is also super disgusting.','2018-10-22 15:30:00', '0'),<br>
+	                    ('Terrance', 'Walsh', '9734507157', 'Spruce', 8, 'The neighbors are being really loud. Make it stop.','2018-10-21 12:30:15', '1'),<br>
+                        ('Paulette', 'Daniels', '2016975077', 'Willow', 3, 'We are missing a screen on one of the windows. Can we get one?','2018-10-25 08:45:14', '1')<br>
+                    GO<br>
+                </p>
+                <br>
+                <h4>Down.SQL</h4>
+                <p>
+                    -- Take the Requests table down<br>
+                    DROP TABLE [dbo].[Requests];
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 3:</h3>
+                <p>
+                    
                 </p>
             </div>
         </div>
