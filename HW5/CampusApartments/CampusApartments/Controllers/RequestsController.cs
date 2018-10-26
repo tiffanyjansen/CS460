@@ -26,7 +26,8 @@ namespace CampusApartments.Controllers
         // GET: Requests/Create
         public ActionResult Create()
         {
-           return View();
+            @ViewBag.Time = DateTime.Now;
+            return View();
         }
 
         // POST: Requests/Create
