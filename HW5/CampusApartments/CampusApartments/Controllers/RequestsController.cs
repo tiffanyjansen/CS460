@@ -18,13 +18,15 @@ namespace CampusApartments.Controllers
         // GET: Requests
         public ActionResult Index()
         {
-            return View(db.Requests.ToList());
+            List<Request> list = db.Requests.ToList();
+            var sorted = list.OrderBy(time => time.TimeOfRequest);
+            return View(sorted);
         }
 
         // GET: Requests/Create
         public ActionResult Create()
         {
-            return View();
+           return View();
         }
 
         // POST: Requests/Create
@@ -32,7 +34,7 @@ namespace CampusApartments.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RequestID,FirstName,LastName,PhoneNumber,ApartmentName,UnitNumber,MaintenanceRequired")] Request request)
+        public ActionResult Create([Bind(Include = "TimeOfRequest,FirstName,LastName,PhoneNumber,ApartmentName,UnitNumber,MaintenanceRequired,Permission")] Request request)
         {
             if (ModelState.IsValid)
             {

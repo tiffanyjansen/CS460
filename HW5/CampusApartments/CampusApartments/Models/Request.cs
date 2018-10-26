@@ -40,14 +40,7 @@ namespace CampusApartments.Models
         [Display(Name = "Maintenance Required")]
         public string MaintenanceRequired { get; set; }
 
-        public DateTime TimeOfRequest
-        {
-            get
-            {
-                var today = DateTime.Today;
-                return today;
-            }
-        }
+        public DateTime TimeOfRequest { get; set; }
 
         [Display(Name = "Permission to enter if no one answers door? Check for yes.")]
         public bool Permission { get; set; }

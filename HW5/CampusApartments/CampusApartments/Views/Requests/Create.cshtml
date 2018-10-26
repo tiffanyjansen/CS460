@@ -1,7 +1,7 @@
 ﻿@model CampusApartments.Models.Request
 
 @{
-    ViewBag.About = "active";
+    ViewBag.MaintenanceReq = "active";
 }
 
 @using (Html.BeginForm()) 
@@ -84,6 +84,8 @@
                     @Html.CheckBoxFor(model => model.Permission)
                 </div>
             </div>
+
+            @Html.ValueFor(model => model.TimeOfRequest)
             <div class="form-group">
                 <div class="col-md-12">
                     <input type="submit" value="Submit Request" class="btn btn-default" />

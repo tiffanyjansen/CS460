@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Maintenance Requests Made";
-    ViewBag.Contact = "active";
+    ViewBag.MaintenanceFor = "active";
 }
 
 <div class="center">
@@ -12,6 +12,9 @@
 <table>
         <thead>
             <tr align="center">
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeOfRequest)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.FirstName)
                 </th>
@@ -39,6 +42,9 @@
             @foreach (var item in Model)
             {
                 <tr align="center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeOfRequest)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
