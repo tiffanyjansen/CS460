@@ -1,8 +1,18 @@
 ﻿
 @{
-    ViewBag.Title = "ThankYou";
+    ViewBag.Title = "Thank You";
+    ViewBag.MainR = "active";
 }
 
-<h2>Thank You</h2>
-<p>Your request has been submitted. To submit another please use the button below.</p>
+<div class="center" id="Intro">
+    <h1>@ViewBag.Title</h1>
+    <p>
+        Your request has been submitted. We will be there in the next couple of days to fix the problem. If there is anything else
+        you need from us please submit another form using the button below or give us a call at 1(800) 1-CAMPUS.
+    </p>
+</div>
+<br />
+<div class="center">
+    <p><a class="btn btn-default" @Html.ActionLink("Submit Another", "Create", "Requests")</a></p>
+</div>
 
