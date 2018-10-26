@@ -3,7 +3,12 @@
     "",
     "\\HW3",
     "\\HW3\\BitsHW3",
-    "\\HW3\\BitsHW3\\BitsHW3"
+    "\\HW3\\BitsHW3\\BitsHW3",
+    "\\HW5",
+    "\\HW5\\CampusApartments",
+    "\\HW5\\CampusApartments\\CampusApartments",
+    "\\HW5\\CampusApartments\\CampusApartments\\App_Data"
   ],
+  "SelectedNode": "\\HW5\\CampusApartments\\CampusApartments\\App_Data\\up.sql",
   "PreviewInSolutionExplorer": false
 }

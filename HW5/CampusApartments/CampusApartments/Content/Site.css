@@ -31,10 +31,33 @@ textarea {
     margin-top: 25px;
     background-color: darkred;
     color: white;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
 }
 .center {
     text-align: center;
-    font: large impact;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
+    font: large Book Antiqua;
+}
+
+table {
+    font-family: 'Book Antiqua';
+    padding: 5px;
+    border: 5px solid darkred;
+    text-align: center;
+}
+
+th {
+    padding: 10px;
+    border: 2.5px solid darkred;
+    align-content: center;
+}
+
+td {
+    padding: 10px;
+    border: 2.5px solid darkred;
+    align-content: center;
+}
+
+h2 {
+    color: darkred;
 }

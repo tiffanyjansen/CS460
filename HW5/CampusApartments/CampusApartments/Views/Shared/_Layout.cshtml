@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Tiffany Jansen</title>
+    <title>@ViewBag.Title Campus Apartments</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -20,9 +20,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="@ViewBag.Home">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="@ViewBag.About">@Html.ActionLink("Maintenance Request Form", "Form", "Home")</li>
-                    <li class="@ViewBag.Contact">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="@ViewBag.Home">@Html.ActionLink("Home Page", "Index", "Home")</li>
+                    <li class="@ViewBag.MainR">@Html.ActionLink("Maintenance Request Form", "Create", "Requests")</li>
+                    <li class="@ViewBag.MainF">@Html.ActionLink("Maintenance Requests Made", "Index", "Requests")</li>
                 </ul>
             </div>
         </div>
@@ -31,7 +31,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p style="font:medium impact">Campus Apartments</p>
+            <p style="font:medium Book Antiqua; color:darkred;">Campus Apartments</p>
         </footer>
     </div>
 

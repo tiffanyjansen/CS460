@@ -12,19 +12,5 @@ namespace CampusApartments.Controllers
         {
             return View();
         }
-
-        public ActionResult Form()
-        {
-            ViewBag.Message = "You may place your Maintenance Requests here.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
