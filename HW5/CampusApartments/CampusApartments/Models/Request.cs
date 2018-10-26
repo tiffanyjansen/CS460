@@ -22,7 +22,7 @@ namespace CampusApartments.Models
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(15)]
+        [Phone]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
