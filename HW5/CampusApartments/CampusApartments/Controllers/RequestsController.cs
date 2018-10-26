@@ -41,10 +41,14 @@ namespace CampusApartments.Controllers
             {
                 db.Requests.Add(request);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ThankYou");
             }
 
             return View(request);
+        }
+        public ActionResult ThankYou()
+        {
+            return View();
         }
     }
 }

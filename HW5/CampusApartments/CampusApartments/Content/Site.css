@@ -36,25 +36,28 @@ textarea {
 }
 .center {
     text-align: center;
-    font: large impact;
+    font: large Book Antiqua;
 }
 
-#Table {
-    font: medium impact;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    text-align: center;
-}
-
-table{
+table {
+    font-family: 'Book Antiqua';
     padding: 5px;
-    border: 1px solid black;
+    border: 5px solid darkred;
+    text-align: center;
 }
 
 th {
     padding: 10px;
+    border: 2.5px solid darkred;
+    align-content: center;
 }
 
 td {
     padding: 10px;
+    border: 2.5px solid darkred;
+    align-content: center;
+}
+
+h2 {
+    color: darkred;
 }

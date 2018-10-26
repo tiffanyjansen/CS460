@@ -212,6 +212,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Requests\Create.cshtml" />
     <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\Requests\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
