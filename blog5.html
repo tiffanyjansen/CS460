@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> CS 460 </title>      
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="hwstyles.css">
+    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div id="blog">
+        <h1>Homework 5 Blog</h1>
+    </div>
+</head>
+<body style="background-color:lightgray;">
+    <div id="Intro">
+        <h3>About the Assignment</h3>
+        <p>
+            This assignment was designed to get us more familiar with the MVC Framework and ASP.NET. It also started to introduce
+            how to add a database to a project in order to make it do something. This project was difficult. We had just started using Visual
+            Studio and then we added a Database and model... The entire thing was very mind-blowing. But I got through it. I will try to explain
+            everything well enough here, but if I get too frustrated I will create a video for it on Monday/Tuesday to Demo it better. 
+            **Today is Friday and I'm on a flight to Michigan for a Conference so I cannot do a video this weekend, otherwise I would.**
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 1: Create a Home Page</h3>
+                <p>
+                    This part was fun. I started with the MVC project so it used a lot of Bootstrap formatting stuff, but, unlike the last one,
+                    I decided to do something different. In the example on his HW5 page he used "Campus Apartments" and since I'm so uncreative I 
+                    just copied his name. When I think of campus I think of Western and Western is Red and Black, so instead of all the blue and grey
+                    formatting that Bootstrap has I created my own red and black one. I don't know if it's super nice looking, but I think it looks 
+                    okay. If I had more time to work on it I would probably change a few more things, but I don't so it's going to have to stay the way it is.
+                    I enjoy using HTML and  since the home page is just a normal view the code was all CSS and HTML which everyone already knows, so I will just
+                    add a picture of what it looks like below, so you can see my design.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 2: Create the Database</h3>
+                <p>
+                    This wasn't the hardest part of the assignment, but it was kind of difficult compared to just creatinng the home page. 
+                    In class we were shown how to do the Model first and then connect a database to that, but on the homework it said the opposite.
+                    So I knew how to do steps 3 and 4 before I knew how to do step 2. Once I finally got the thing created and connected correctly the 
+                    rest wasn't so bad. Creating it was harder than expected though because you can't just "Add Table" you have to write it all in a query
+                    and make sure it works before you can even move on. I had a lot of errors because I haven't used SQL in a while and I wasn't sure what
+                    I was doing. Once he explained it in class everything made sense, but of course I had to work on it before Wednesday so I was hitting my 
+                    head against a wall from Sunday to Wednesday, but that's totally fine. The SQL code to create and drop the table can be found below the picture 
+                    of the home page.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <img style="width: 95%;" src="HW5/homepage.JPG">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Code" style="margin-left: 50px;">
+                <h4>Up.SQL</h4>
+                <p>
+                    --Requests Table<br>
+                    CREATE TABLE [dbo].[Requests]<br>
+                    (<br>
+	                    [RequestID]        INT IDENTITY (1,1)    NOT NULL, <br>
+                        [FirstName]    NVARCHAR(64)        NOT NULL, <br>
+                        [LastName]    NVARCHAR(128)        NOT NULL, <br>
+	                    [PhoneNumber] NVARCHAR(15) NOT NULL, <br>
+	                    [ApartmentName] NVARCHAR(25) NOT NULL, <br>
+	                    [UnitNumber] INT NOT NULL, <br>
+	                    [MaintenanceRequired] NVARCHAR(1000) NOT NULL, <br>
+                        [TimeOfRequest]        DateTime            NOT NULL, <br>
+	                    [Permission]		BIT		NOT NULL,<br>
+                        CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([RequestID] ASC)<br>
+                    );<br>
+                    <br>
+                    INSERT INTO [dbo].[Requests] (FirstName, LastName, PhoneNumber, ApartmentName, UnitNumber, MaintenanceRequired, TimeOfRequest, Permission) VALUES <br>
+                        ('Dean', 'Chase', '6094529112', 'Cedar', 5, 'The toilet is plugged.','2018-10-22 15:20:00', '1'), <br>
+                        ('Muriel', 'Shaffer', '9442120880', 'Willow', 1, 'The kitchen sink is leaking.','2018-10-12 14:00:00', '0'),<br>
+                        ('Erasmo', 'Brandt', '6602952306', 'Cedar', 2, 'I just moved in and like 10 of the light bulbs are dead. The bathroom upstairs is also super disgusting.','2018-10-22 15:30:00', '0'),<br>
+	                    ('Terrance', 'Walsh', '9734507157', 'Spruce', 8, 'The neighbors are being really loud. Make it stop.','2018-10-21 12:30:15', '1'),<br>
+                        ('Paulette', 'Daniels', '2016975077', 'Willow', 3, 'We are missing a screen on one of the windows. Can we get one?','2018-10-25 08:45:14', '1')<br>
+                    GO<br>
+                </p>
+                <br>
+                <h4>Down.SQL</h4>
+                <p>
+                    -- Take the Requests table down<br>
+                    DROP TABLE [dbo].[Requests];
+                </p>
+            </div>
+            <div id="Words">
+                <h3>Step 4:Creating the DAL</h3>
+                <p>
+                    This part wasn't too bad either. I basically just used the example in class to do it. The code can be found to the right.
+                    The code for this is found in the DAL Folder that I created.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 3: Create Model Class</h3>
+                <p>
+                    After creating the database, the next step was to create the model so the database could be connected to the project. Creating the 
+                    model wasn't too difficult, but connecting the database kind of was. The basics for creating the model are to just basically create a
+                    bunch of methods with the same name as the stuff in the database. There are some things I added for formatting/making the code in the 
+                    View look nicer, but that's the basic thing. The code for the PhoneNumber column can be found below. This mathod was the one
+                    with the most formatting since I wanted to make sure that the input was actually a phone number and not just a random 
+                    string of letters. I believe it was required to name the Model with a SINGULAR word, I don't know if that is for sure, but 
+                    something like that is required somewhere.
+                </p>
+            </div>
+            <div id="Code">
+                <h4>Request.cs</h4>
+                <p>
+                    .<br>.<br>.<br>
+                    [Required]<br>
+                    [Phone]<br>
+                    [Display(Name = "Phone Number")]<br>
+                    public string PhoneNumber { get; set; }<br>
+                    <br>
+                    [Required]<br>
+                    [StringLength(15)]<br>
+                    [Display(Name = "Apartment Name")]<br>
+                    public string ApartmentName { get; set; }<br>
+                    .<br>.<br>.<br>
+                </p>
+            </div>
+            <br>
+            <div id="Code">
+                <h4>Found in DAL Folder</h4>    
+                <p>
+                    public class RequestContext : DbContext<br>
+                    {<br>
+                        public RequestContext() : base("name=TheRequests")<br>
+                        {<br>
+                            
+                        }<br>
+                        public virtual DbSet<Request> Requests { get; set; } <br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 5: Connect Database to Project</h3>
+                <p>
+                    This part took a little longer just because there were a lot of issues. I had to get Entity Framework and get the 
+                    String Connection working and everything, once I got that working it wasn't so bad, minus getting the time to work. 
+                    The act of atually connecting it wasn't too bad. Since I just followed the steps in class I figure that I don't need to 
+                    add screenshots for the stuff. I will include how I got the time to work since that was one of the more complicated things.
+                </p>
+            </div>
+            <div id="Code" style="margin-left: 50px;">
+                <h4>Controller for the GET of Create</h4>
+                <p>
+                    // GET: Requests/Create<br>
+                    public ActionResult Create()<br>
+                    {<br>
+                        @ViewBag.Time = DateTime.Now;<br>
+                        return View();<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 6: Get Form Page working with the Model</h3>
+                <p>
+                    This wasn't too difficult since I just used the "cheater" way. The code itself worked well. I basically just changed a few things 
+                    and did some CSS to make it look nice. The Form page now looks like:
+                </p>
+            </div>
+            <img src="HW5/formpage.JPG" style="width: 90%;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="Words">
+                <h3>Step 7: Make the Form work. </h3>
+                <p>
+                    So basically I had to make sure the form worked, so first thing I did was make sure that the form would produce error messages
+                    depending on what the input was, and then I had to make sure that it would actually add to the Report Page. So, the screenshots will
+                    include what happens when someone doesn't include anything, when someone doesn't put a phone number into the phone number box, and what happens
+                    when they do everything correctly. (For the next assignment I will do a video to Demo everything better.)
+                </p>
+            </div>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <img src="HW5/NoInput.JPG" style="width: 95%;">
+            <img src="HW5/NoPhoneNumber.JPG" style="width: 95%;">
+            <img src="HW5/BeforePhoneNumber.JPG" style="width: 95%;">
+            <img src="HW5/ItWorked.JPG" style="width: 95%;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 8: Check out Report</h3>
+                <p>
+                    The report updates as you add them, so Alex John will not be on there with the time I added him. He was not on there before, 
+                    but I will prove it by adding another. So, Report Before, New Addition, Report After. Also, they are ordered by time and the
+                    code I used to do that is to the right.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Code">
+                <h3>OrderBy</h3>
+                <p>
+                    // GET: Requests <br>
+                    public ActionResult Index()<br>
+                    {<br>
+                        List<Request> list = db.Requests.ToList();<br>
+                        var sorted = list.OrderBy(time => time.TimeOfRequest);<br>
+                        return View(sorted);<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <img src="HW5/TableBefore.JPG" style="width:95%">
+            <img src="HW5/AddNewRow.JPG" style="width:95%">
+            <img src="HW5/TableAfter.JPG" style="width:95%">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="Words">
+                <h3>Step 9: Finished?</h3>
+                <p>
+                    I think that's pretty much everything. I am sure I skipped things, but I just wanna be done. I definitely
+                    should start doing the blog as I go instead of doing it all at the end. (In the future I will try to do this.)
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="Intro">
+        <h3>Closing Remarks</h3>
+        <p>
+            This project was frustrating. I knew I wasn't going to have any time this weekend to do stuff so I tried to get ahead, but then 
+            we didn't learn half the stuff until the Thursday in class so I had no idea what I was doing. Lucky for me I had a lot of it done and
+            just did some Googling for the stuff I didn't understand. I think I'm really going to enjoy the next few assignments now that I kind of
+            understand what is going on when it comes to adding Databases to MVC Projects.
+        </p>
+        <p id= "closing">See you next time,</p>
+        <p id="sign">Tiffany Jansen</p>
+    </div>
+</body>
+</html>
