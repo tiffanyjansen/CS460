@@ -55,8 +55,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-            <img style="margin-left: 50px;" src="HW5/homepage.JPG">
+        <div class="col-sm-12">
+            <img style="width: 95%;" src="HW5/homepage.JPG">
         </div>
     </div>
 
@@ -95,16 +95,82 @@
                     DROP TABLE [dbo].[Requests];
                 </p>
             </div>
+            <div id="Words">
+                <h3>Step 4:Creating the DAL</h3>
+                <p>
+                    This part wasn't too bad either. I basically just used the example in class to do it. The code can be found to the right.
+                    The code for this is found in the DAL Folder that I created.
+                </p>
+            </div>
         </div>
         <div class="col-md-6">
             <div id="Words">
-                <h3>Step 3:</h3>
+                <h3>Step 3: Create Model Class</h3>
                 <p>
-                    
+                    After creating the database, the next step was to create the model so the database could be connected to the project. Creating the 
+                    model wasn't too difficult, but connecting the database kind of was. The basics for creating the model are to just basically create a
+                    bunch of methods with the same name as the stuff in the database. There are some things I added for formatting/making the code in the 
+                    View look nicer, but that's the basic thing. The code for the PhoneNumber column can be found below. This mathod was the one
+                    with the most formatting since I wanted to make sure that the input was actually a phone number and not just a random 
+                    string of letters. I believe it was required to name the Model with a SINGULAR word, I don't know if that is for sure, but 
+                    something like that is required somewhere.
+                </p>
+            </div>
+            <div id="Code">
+                <h4>Request.cs</h4>
+                <p>
+                    .<br>.<br>.<br>
+                    [Required]<br>
+                    [Phone]<br>
+                    [Display(Name = "Phone Number")]<br>
+                    public string PhoneNumber { get; set; }<br>
+                    <br>
+                    [Required]<br>
+                    [StringLength(15)]<br>
+                    [Display(Name = "Apartment Name")]<br>
+                    public string ApartmentName { get; set; }<br>
+                    .<br>.<br>.<br>
+                </p>
+            </div>
+            <br>
+            <div id="Code">
+                <h4>Found in DAL Folder</h4>    
+                <p>
+                    public class RequestContext : DbContext<br>
+                    {<br>
+                        public RequestContext() : base("name=TheRequests")<br>
+                        {<br>
+                            
+                        }<br>
+                        public virtual DbSet<Request> Requests { get; set; } <br>
+                    }<br>
                 </p>
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 5: Connect Database to Project</h3>
+                <p>
+                    This part took a little longer just because there were a lot of issues. I had to get Entity Framework and get the 
+                    String Connection working and everything, once I got that working it wasn't so bad, minus getting the time to work. 
+                    The act of atually connecting it wasn't too bad. Since I just followed the steps in class I figure that I don't need to 
+                    add screenshots for the stuff. I will include how I got the time to work since that was one of the more complicated things.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 6: </h3>
+            </div>
+        </div> 
+    </div>
+
     
     <div id="Intro">
         <h3>Closing Remarks</h3>
