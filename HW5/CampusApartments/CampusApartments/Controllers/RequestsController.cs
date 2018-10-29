@@ -46,6 +46,8 @@ namespace CampusApartments.Controllers
 
             return View(request);
         }
+
+        //The view for after the submit works.
         public ActionResult ThankYou()
         {
             return View();
