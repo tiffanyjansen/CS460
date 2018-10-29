@@ -200,7 +200,45 @@
 
     <div class="row">
         <div class="col-md-12">
-            <img src="HW5/"
+            <img src="HW5/NoInput.JPG" style="width: 95%;">
+            <img src="HW5/NoPhoneNumber.JPG" style="width: 95%;">
+            <img src="HW5/BeforePhoneNumber.JPG" style="width: 95%;">
+            <img src="HW5/ItWorked.JPG" style="width: 95%;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="Words">
+                <h3>Step 8: Check out Report</h3>
+                <p>
+                    The report updates as you add them, so Alex John will not be on there with the time I added him. He was not on there before, 
+                    but I will prove it by adding another. So, Report Before, New Addition, Report After. Also, they are ordered by time and the
+                    code I used to do that is to the right.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="Code">
+                <h3>OrderBy</h3>
+                <p>
+                    // GET: Requests <br>
+                    public ActionResult Index()<br>
+                    {<br>
+                        List<Request> list = db.Requests.ToList();<br>
+                        var sorted = list.OrderBy(time => time.TimeOfRequest);<br>
+                        return View(sorted);<br>
+                    }<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <img src="HW5/TableBefore.JPG" style="width:95%">
+            <img src="HW5/AddNewRow.JPG" style="width:95%">
+            <img src="HW5/TableAfter.JPG" style="width:95%">
         </div>
     </div>
     
