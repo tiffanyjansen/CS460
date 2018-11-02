@@ -1,9 +1,10 @@
-namespace WorldWideImporters.Models
+namespace WorldWideImporters.DAL
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using WorldWideImporters.Models;
 
     public partial class WWIContext : DbContext
     {

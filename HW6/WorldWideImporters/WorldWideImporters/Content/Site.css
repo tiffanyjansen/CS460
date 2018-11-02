@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#Intro {
+    border: 5px double white;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    background-color: black;
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+
