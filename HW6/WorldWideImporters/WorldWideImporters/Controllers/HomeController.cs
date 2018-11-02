@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WorldWideImporters.DAL;
 
 namespace WorldWideImporters.Controllers
 {
     public class HomeController : Controller
     {
+        private WWIContext db = new WWIContext();
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Search()
         {
-            ViewBag.Message = "Your application description page.";
+            string SearchString = Request.QueryString["search"];
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var Results = db.People.Where(p => p.SearchName.Contains(SearchString));
+                       
+            return View(Results);
         }
     }
 }
