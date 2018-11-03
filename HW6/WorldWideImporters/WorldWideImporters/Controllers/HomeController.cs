@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WorldWideImporters.DAL;
 using WorldWideImporters.Models;
+using WorldWideImporters.Models.ViewModels;
 
 namespace WorldWideImporters.Controllers
 {
@@ -33,8 +34,8 @@ namespace WorldWideImporters.Controllers
         {
             Debug.WriteLine("ID = " + ID);
 
-            var Result = db.People.Find(ID);
-                     
+            
+                                      
             return View("~/Views/People/Details.cshtml", Result);
         }
     }

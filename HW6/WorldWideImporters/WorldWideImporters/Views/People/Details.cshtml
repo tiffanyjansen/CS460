@@ -1,4 +1,4 @@
-﻿@model WorldWideImporters.Models.Person
+﻿@model WorldWideImporters.Models.ViewModels.Information;
 
 @{
     ViewBag.Title = "Details";
@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <dl>
                 <dt>
-                    Full Name
+                    @Html.DisplayNameFor(model )
                 </dt>
 
                 <dd>

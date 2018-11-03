@@ -5,14 +5,11 @@ using System.Web;
 
 namespace WorldWideImporters.Models.ViewModels
 {
-    public class ItemsPurchased
+    public class Product
     {
         public int StockItemID { get; set; }
-
         public string Description { get; set; }
-
         public decimal Profit { get; set; }
-
-        public Person Salesperson { get; set; }
+        public string Salesperson { get; set; }
     }
 }
