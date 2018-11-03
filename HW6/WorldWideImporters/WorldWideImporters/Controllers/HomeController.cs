@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WorldWideImporters.DAL;
+using WorldWideImporters.Models;
 
 namespace WorldWideImporters.Controllers
 {
@@ -24,6 +26,16 @@ namespace WorldWideImporters.Controllers
             var Results = db.People.Where(p => p.SearchName.Contains(SearchString));
                        
             return View(Results);
+        }
+
+        [HttpPost]
+        public ActionResult Search(int ID)
+        {
+            Debug.WriteLine("ID = " + ID);
+
+            var Result = db.People.Find(ID);
+                     
+            return View("~/Views/People/Details.cshtml", Result);
         }
     }
 }
