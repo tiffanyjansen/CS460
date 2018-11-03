@@ -45,7 +45,7 @@ namespace WorldWideImporters.DAL
         public virtual DbSet<StockItemStockGroup> StockItemStockGroups { get; set; }
         public virtual DbSet<StockItemTransaction> StockItemTransactions { get; set; }
         public virtual DbSet<VehicleTemperature> VehicleTemperatures { get; set; }
-        public virtual DbSet<Information> Informations { get; set; }
+        public virtual DbSet<Info> Information { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -36,7 +36,7 @@ namespace WorldWideImporters.Controllers
 
             
                                       
-            return View("~/Views/People/Details.cshtml", Result);
+            return View("~/Views/People/Details.cshtml");
         }
     }
 }

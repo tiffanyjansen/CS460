@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace WorldWideImporters.Models.ViewModels
     {
         //Part 1 of Assignment
         //Person Information
+        [Key]
         public string Name { get; set; }
         public string PName { get; set; }
         public string Phone { get; set; }
@@ -30,6 +32,6 @@ namespace WorldWideImporters.Models.ViewModels
         public decimal GrossProfit { get; set; }
 
         //Top Products Information
-        public List<Product> product { get; set; }        
+        public List<Product> Products { get; set; }        
     }
 }
