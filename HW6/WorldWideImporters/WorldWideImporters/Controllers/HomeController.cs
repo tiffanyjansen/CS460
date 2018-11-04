@@ -34,9 +34,12 @@ namespace WorldWideImporters.Controllers
         {
             Debug.WriteLine("ID = " + ID);
 
-            
-                                      
-            return View("~/Views/People/Details.cshtml");
+            var Result = db.People
+                    .Where(p => p.PersonID == ID)
+                    .Select(p => new Info(p.FullName, p.PreferredName, p.PhoneNumber, p.FaxNumber, p.EmailAddress, p.ValidFrom))
+                    .FirstOrDefault();
+                                                         
+            return View("~/Views/Information/Details.cshtml", Result);
         }
     }
 }

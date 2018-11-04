@@ -8,6 +8,16 @@ namespace WorldWideImporters.Models.ViewModels
 {
     public class Info
     {
+        public Info(string Name, string PName, string Phone, string Fax, string Email, DateTime Member)
+        {
+            this.Name = Name;
+            this.PName = PName;
+            this.Phone = Phone;
+            this.Fax = Fax;
+            this.Email = Email;
+            this.Member = Member;
+        }
+
         //Part 1 of Assignment
         //Person Information
         [Key]
@@ -24,12 +34,12 @@ namespace WorldWideImporters.Models.ViewModels
         public string CompanyPhone { get; set; }
         public string CompanyFax { get; set; }
         public string Website { get; set; }
-        public DateTime CompanyYear { get; set; }
+        public DateTime? CompanyYear { get; set; }
 
         //Purchases Information
-        public int Orders { get; set; }
-        public decimal GrossSales { get; set; }
-        public decimal GrossProfit { get; set; }
+        public int? Orders { get; set; }
+        public decimal? GrossSales { get; set; }
+        public decimal? GrossProfit { get; set; }
 
         //Top Products Information
         public List<Product> Products { get; set; }        
