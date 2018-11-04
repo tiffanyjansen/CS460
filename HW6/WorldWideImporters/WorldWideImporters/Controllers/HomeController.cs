@@ -34,11 +34,10 @@ namespace WorldWideImporters.Controllers
         {
             Debug.WriteLine("ID = " + ID);
 
-            var Result = db.People
+           var Result = db.People
                     .Where(p => p.PersonID == ID)
-                    .Select(p => new Info(p.FullName, p.PreferredName, p.PhoneNumber, p.FaxNumber, p.EmailAddress, p.ValidFrom))
-                    .FirstOrDefault();
-                                                         
+                    .Select(p => new Info { Name = p.FullName, PName = p.PreferredName, Phone = p.PhoneNumber, Fax = p.FaxNumber, Email = p.EmailAddress, Member = p.ValidFrom });
+                                                      
             return View("~/Views/Information/Details.cshtml", Result);
         }
     }

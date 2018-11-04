@@ -8,6 +8,8 @@ namespace WorldWideImporters.Models.ViewModels
 {
     public class Info
     {
+
+        public Info() { }
         public Info(string Name, string PName, string Phone, string Fax, string Email, DateTime Member)
         {
             this.Name = Name;
