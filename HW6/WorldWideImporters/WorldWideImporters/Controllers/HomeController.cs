@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using WorldWideImporters.DAL;
-using WorldWideImporters.Models;
 using WorldWideImporters.Models.ViewModels;
+using WorldWideImporters.Models;
 
 namespace WorldWideImporters.Controllers
 {
@@ -34,10 +32,56 @@ namespace WorldWideImporters.Controllers
         {
             Debug.WriteLine("ID = " + ID);
 
-           var Result = db.People
+            var Person = db.People
                     .Where(p => p.PersonID == ID)
-                    .Select(p => new Info { Name = p.FullName, PName = p.PreferredName, Phone = p.PhoneNumber, Fax = p.FaxNumber, Email = p.EmailAddress, Member = p.ValidFrom });
-                                                      
+                    .Select(p => new { Name = p.FullName, PName = p.PreferredName, Phone = p.PhoneNumber, Fax = p.FaxNumber, Email = p.EmailAddress, Member = p.ValidFrom })
+                    .First();
+
+            Info Result = new Info();
+            Result.Name = Person.Name;
+            Result.PName = Person.PName;
+            Result.Phone = Person.Phone;
+            Result.Fax = Person.Fax;
+            Result.Email = Person.Email;
+            Result.Member = Person.Member;
+            
+            if (db.People.Find(ID).Customers2.First() != null) {
+                //Company Information
+                var Company = db.People
+                    .Find(ID).Customers2
+                    .Select(p => new { CompanyName = p.CustomerName, CompanyPhone = p.PhoneNumber, CompanyFax = p.FaxNumber, Website = p.WebsiteURL, CompanyYear = p.ValidFrom })
+                    .FirstOrDefault();
+
+                //Put information from Query into Result.
+                Result.CompanyName = Company.CompanyName;
+                Result.CompanyPhone = Company.CompanyPhone;
+                Result.CompanyFax = Company.CompanyFax;
+                Result.Website = Company.Website;
+                Result.CompanyYear = Company.CompanyYear;
+
+                //Purchases Information
+                //Count Number of Orders
+                Result.Orders = db.People
+                    .Find(ID).Customers2.First().Orders
+                    .Count();
+
+                //Gross Sales
+                Result.GrossSales = db.People
+                    .Find(ID).Customers2.First().Orders
+                    .SelectMany(o => o.Invoices
+                        .SelectMany(i => i.InvoiceLines
+                            .Select(il => il.ExtendedPrice)))
+                    .Sum();
+
+                //Gross Profit
+                Result.GrossProfit = db.People
+                    .Find(ID).Customers2.First().Orders
+                    .SelectMany(o => o.Invoices
+                        .SelectMany(i => i.InvoiceLines
+                            .Select(il => il.LineProfit)))
+                    .Sum();
+            }
+                                                                           
             return View("~/Views/Information/Details.cshtml", Result);
         }
     }
