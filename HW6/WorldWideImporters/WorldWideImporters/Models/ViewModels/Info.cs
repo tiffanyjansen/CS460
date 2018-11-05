@@ -34,6 +34,7 @@ namespace WorldWideImporters.Models.ViewModels
         [Display(Name="Email Address")]
         public string Email { get; set; }
         [Display(Name="Member Since")]
+        [DisplayFormat(DataFormatString = "{0:MM/yyyy}")]
         public DateTime Member { get; set; }
 
         //Part 2 of Assignment
@@ -46,6 +47,7 @@ namespace WorldWideImporters.Models.ViewModels
         public string CompanyFax { get; set; }
         public string Website { get; set; }
         [Display(Name = "Member Since")]
+        [DisplayFormat(DataFormatString = "{0:MM/yyyy}")]
         public DateTime? CompanyYear { get; set; }
 
         //Purchases Information
