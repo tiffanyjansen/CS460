@@ -23,7 +23,7 @@ namespace WorldWideImporters.Controllers
             string SearchString = Request.QueryString["search"];
 
             var Results = db.People.Where(p => p.SearchName.Contains(SearchString));
-                       
+
             return View(Results);
         }
 
@@ -37,15 +37,18 @@ namespace WorldWideImporters.Controllers
                     .Select(p => new { Name = p.FullName, PName = p.PreferredName, Phone = p.PhoneNumber, Fax = p.FaxNumber, Email = p.EmailAddress, Member = p.ValidFrom })
                     .First();
 
-            Info Result = new Info();
-            Result.Name = Person.Name;
-            Result.PName = Person.PName;
-            Result.Phone = Person.Phone;
-            Result.Fax = Person.Fax;
-            Result.Email = Person.Email;
-            Result.Member = Person.Member;
-            
-            if (db.People.Find(ID).Customers2.First() != null) {
+            Info Result = new Info
+            {
+                Name = Person.Name,
+                PName = Person.PName,
+                Phone = Person.Phone,
+                Fax = Person.Fax,
+                Email = Person.Email,
+                Member = Person.Member
+            };
+
+            if (db.People.Find(ID).Customers2.FirstOrDefault() != null)
+            {
                 //Company Information
                 var Company = db.People
                     .Find(ID).Customers2
@@ -80,9 +83,25 @@ namespace WorldWideImporters.Controllers
                         .SelectMany(i => i.InvoiceLines
                             .Select(il => il.LineProfit)))
                     .Sum();
-            }
-                                                                           
-            return View("~/Views/Information/Details.cshtml", Result);
+
+                //Find Top 10 Most Profitable Items
+                Result.Products = db.People
+                    .Find(ID).Customers2.First().Orders
+                    .SelectMany(o => o.Invoices
+                        .SelectMany(i => i.InvoiceLines))
+                    .OrderByDescending(il => il.LineProfit)
+                    .Take(10)
+                    .Select(il => new Product
+                    {
+                        StockItemID = il.StockItemID,
+                        Description = il.Description,
+                        Profit = il.LineProfit,
+                        Salesperson = il.Invoice.Person4.FullName
+                    });
+
+                return View("~/Views/Information/Customer.cshtml", Result);
+            }                                                                             
+            return View("~/Views/Information/Employee.cshtml", Result);
         }
     }
 }

@@ -24,10 +24,16 @@ namespace WorldWideImporters.Models.ViewModels
         //Person Information
         [Key]
         public string Name { get; set; }
+
+        [Display(Name="Preferred Name")]
         public string PName { get; set; }
+        [Display(Name="Phone Number")]
         public string Phone { get; set; }
+        [Display(Name="Fax Number")]
         public string Fax { get; set; }
+        [Display(Name="Email Address")]
         public string Email { get; set; }
+        [Display(Name="Member Since")]
         public DateTime Member { get; set; }
         
         //Part 2 of Assignment
@@ -44,6 +50,6 @@ namespace WorldWideImporters.Models.ViewModels
         public decimal? GrossProfit { get; set; }
 
         //Top Products Information
-        public List<Product> Products { get; set; }        
+        public IEnumerable<Product> Products { get; set; }        
     }
 }

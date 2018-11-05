@@ -37,4 +37,9 @@ textarea {
     text-align: center;
 }
 
-
+#table {
+    text-align: left;
+    background-color: aquamarine;
+    margin: 25px 25px 25px 25px;
+    padding: 10px;
+}
