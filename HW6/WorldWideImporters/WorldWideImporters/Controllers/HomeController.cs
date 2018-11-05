@@ -98,7 +98,6 @@ namespace WorldWideImporters.Controllers
                         Profit = il.LineProfit,
                         Salesperson = il.Invoice.Person4.FullName
                     });
-
                 return View("~/Views/Information/Customer.cshtml", Result);
             }                                                                             
             return View("~/Views/Information/Employee.cshtml", Result);

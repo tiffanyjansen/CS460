@@ -35,18 +35,24 @@ namespace WorldWideImporters.Models.ViewModels
         public string Email { get; set; }
         [Display(Name="Member Since")]
         public DateTime Member { get; set; }
-        
+
         //Part 2 of Assignment
         //Company Information
+        [Display(Name = "Company")]
         public string CompanyName { get; set; }
+        [Display(Name = "Phone Number")]
         public string CompanyPhone { get; set; }
+        [Display(Name = "Fax Number")]
         public string CompanyFax { get; set; }
         public string Website { get; set; }
+        [Display(Name = "Member Since")]
         public DateTime? CompanyYear { get; set; }
 
         //Purchases Information
         public int? Orders { get; set; }
+        [Display(Name = "Gross Sales")]
         public decimal? GrossSales { get; set; }
+        [Display(Name = "Gross Profit")]
         public decimal? GrossProfit { get; set; }
 
         //Top Products Information

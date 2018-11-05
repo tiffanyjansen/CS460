@@ -9,9 +9,12 @@ namespace WorldWideImporters.Models.ViewModels
     public class Product
     {
         [Key]
-        public int StockItemID { get; set; }
+        [Display(Name="Stock Item ID")]
+        public int StockItemID { get; set; }        
         public string Description { get; set; }
+        [Display(Name="Line Profit")]
         public decimal Profit { get; set; }
+        [Display(Name="Sales Person")]
         public string Salesperson { get; set; }
     }
 }
