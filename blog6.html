@@ -120,7 +120,7 @@
                     .Where(p => p.PersonID == ID)<br>
                     .Select(p => new { Name = p.FullName, PName = p.PreferredName, Phone = p.PhoneNumber, Fax = p.FaxNumber, Email = p.EmailAddress, Member = p.ValidFrom })<br>
                     .First();<br>
-        
+                    <br>
                     Info Result = new Info<br>
                     {<br>
                         Name = Person.Name,<br>
@@ -144,7 +144,117 @@
                     For the company: Company name, Phone number, Fax number, Website (as a link), and Year they started as our customer. <br>
                     For the purchases: The Number of Orders Made, Total Gross Sales, and Total Gross Profits <br>
                     For the rest: The Tep 10 most profitable items with the StockItemID, Description, Profit and the Salesperson who handled the sale.<br>
-                    I had to add a bunch of stuff to my Info ViewModel. 
+                    I had to add a bunch of stuff to my Info ViewModel. The stuff I added can be found below.
+                </p>
+            </div>
+            <div id="Code">
+                <h4>Info.cs</h4>
+                <p>
+                        //Part 2 of Assignment<br>
+                        //Company Information<br>
+                        [Display(Name = "Company")]<br>
+                        public string CompanyName { get; set; }<br>
+                        [Display(Name = "Phone Number")]<br>
+                        public string CompanyPhone { get; set; }<br>
+                        [Display(Name = "Fax Number")]<br>
+                        public string CompanyFax { get; set; }<br>
+                        public string Website { get; set; }<br>
+                        [Display(Name = "Member Since")]<br>
+                        [DisplayFormat(DataFormatString = "{0:MM/yyyy}")]<br>
+                        public DateTime? CompanyYear { get; set; }<br>
+                        <br>                
+                        //Purchases Information<br>
+                        public int? Orders { get; set; }<br>
+                        [Display(Name = "Gross Sales")]<br>
+                        public decimal? GrossSales { get; set; }<br>
+                        [Display(Name = "Gross Profit")]<br>
+                        public decimal? GrossProfit { get; set; }<br>
+                        <br>
+                        //Top Products Information<br>
+                        public IEnumerable<Product> Products { get; set; }<br>
+                </p>
+                <h4>Product.cs</h4>
+                <p>
+                    public class Product<br>
+                    {<br>
+                        [Key]<br>
+                        [Display(Name="Stock Item ID")]<br>
+                        public int StockItemID { get; set; } <br>       
+                        public string Description { get; set; }<br>
+                        [Display(Name="Line Profit")]<br>
+                        public decimal Profit { get; set; }<br>
+                        [Display(Name="Sales Person")]<br>
+                        public string Salesperson { get; set; }<br>
+                    }<br>
+                </p>
+            </div>
+            <div id="Words">
+                <p>
+                    Next I had to figure out how to get the information I needed from the tables. For this i wrote out 4 different queries
+                    because all the information was kind of difficult to find. The queries were super fun to write and I have included them below. 
+                    I also included how I got the information into the Info object I created from the first part.
+                </p>
+            </div>
+            <div id="Code">
+                <h4>HomeController.cs</h4>
+                <p>
+                    if (db.People.Find(ID).Customers2.FirstOrDefault() != null) <br>
+                    {<br>
+                        //Company Information<br>
+                        var Company = db.People<br>
+                            .Find(ID).Customers2<br>
+                            .Select(p => new { CompanyName = p.CustomerName, CompanyPhone = p.PhoneNumber, CompanyFax = p.FaxNumber, Website = p.WebsiteURL, CompanyYear = p.ValidFrom })<br>
+                            .FirstOrDefault();<br>
+                            <br>
+                        //Put information from Query into Result.<br>
+                        Result.CompanyName = Company.CompanyName;<br>
+                        Result.CompanyPhone = Company.CompanyPhone;<br>
+                        Result.CompanyFax = Company.CompanyFax;<br>
+                        Result.Website = Company.Website;<br>
+                        Result.CompanyYear = Company.CompanyYear;<br>
+                        <br>
+                        //Purchases Information<br>
+                        //Count Number of Orders<br>
+                        Result.Orders = db.People<br>
+                            .Find(ID).Customers2.First().Orders<br>
+                            .Count();<br>
+                            <br>
+                        //Gross Sales<br>
+                        Result.GrossSales = db.People<br>
+                            .Find(ID).Customers2.First().Orders<br>
+                            .SelectMany(o => o.Invoices<br>
+                                .SelectMany(i => i.InvoiceLines<br>
+                                    .Select(il => il.ExtendedPrice)))<br>
+                            .Sum();<br>
+                            <br>
+                        //Gross Profit<br>
+                        Result.GrossProfit = db.People<br>
+                            .Find(ID).Customers2.First().Orders<br>
+                            .SelectMany(o => o.Invoices<br>
+                                .SelectMany(i => i.InvoiceLines<br>
+                                    .Select(il => il.LineProfit)))<br>
+                            .Sum();<br>
+                            <br>
+                        //Find Top 10 Most Profitable Items<br>
+                        Result.Products = db.People<br>
+                            .Find(ID).Customers2.First().Orders<br>
+                            .SelectMany(o => o.Invoices<br>
+                                .SelectMany(i => i.InvoiceLines))<br>
+                            .OrderByDescending(il => il.LineProfit)<br>
+                            .Take(10)<br>
+                            .Select(il => new Product<br>
+                            {<br>
+                                StockItemID = il.StockItemID,<br>
+                                Description = il.Description,<br>
+                                Profit = il.LineProfit,<br>
+                                Salesperson = il.Invoice.Person4.FullName<br>
+                            });<br>
+                </p>
+            </div>
+            <div id="Words">
+                <p>
+                    After that I just had to make it look nice in the View, which was mostly just styling stuff. I would include the code, but the 
+                    important part is the queries and I don't feel like copying and pasting MORE code into this. 
                 </p>
             </div>
         </div>
