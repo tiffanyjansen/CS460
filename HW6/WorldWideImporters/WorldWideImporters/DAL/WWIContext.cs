@@ -1,9 +1,11 @@
-namespace WorldWideImporters.Models
+namespace WorldWideImporters.DAL
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using WorldWideImporters.Models;
+    using WorldWideImporters.Models.ViewModels;
 
     public partial class WWIContext : DbContext
     {
@@ -43,6 +45,7 @@ namespace WorldWideImporters.Models
         public virtual DbSet<StockItemStockGroup> StockItemStockGroups { get; set; }
         public virtual DbSet<StockItemTransaction> StockItemTransactions { get; set; }
         public virtual DbSet<VehicleTemperature> VehicleTemperatures { get; set; }
+        public virtual DbSet<Info> Information { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
