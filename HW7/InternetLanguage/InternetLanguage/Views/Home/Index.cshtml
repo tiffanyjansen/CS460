@@ -5,10 +5,15 @@
 
 <div class="row justify-content-center">
     <div class="col-md-12">
-        <div class="center">
+        <div class="center" id="home">
             <h2>Internet Language Translator</h2>
             <br />
-            <input type="text" name="words" placeholder="Start Typing What You Would Like to Translate Here..." />
+            <input type="text" name="words" id="words" placeholder="Start typing what you would like to translate here..." />
         </div>
     </div>
 </div>
+
+@section PageScripts
+{
+    <sript type="text/javascript" src="~/Scripts/sentenceCreator.js"></sript>
+}
