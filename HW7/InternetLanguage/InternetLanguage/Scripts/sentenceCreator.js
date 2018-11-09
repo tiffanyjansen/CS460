@@ -26,7 +26,10 @@
 
 function successAjax(request) {
     console.log("IT WORKED");
-    console.log(request.data);
+    console.log(request);
+    var obj = JObject.Parse(request);
+    var url = obj.data.embed_url;
+    console.log("URL found = " + url);
 }
 
 function errorAjax() {

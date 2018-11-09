@@ -21,11 +21,15 @@ namespace InternetLanguage.Controllers
 
             string website = "https://api.giphy.com/v1/stickers/translate?api_key=" + key + "&s=" + word;
 
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(website);
-            request.Method = WebRequestMethods.Http.Get;
-            request.Accept = "application/json";
-
-            return Json(request, JsonRequestBehavior.AllowGet);
+            WebRequest request = WebRequest.Create(website);
+            request.ContentType = "application/json; charset=utf-8";
+            var response = (HttpWebResponse)request.GetResponse();
+            string words;
+            using (var stream = new StreamReader(response.GetResponseStream()))
+            {
+                words = stream.ReadToEnd();
+            }
+            return Json(words, JsonRequestBehavior.AllowGet);
         }
     }
 }
