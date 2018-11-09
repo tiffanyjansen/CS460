@@ -3,11 +3,13 @@
 
     if (e.keyCode == 0 || e.keyCode == 32) {
         console.log("space");
-        word = $("#words").val().toString().toLowerCase();
+        var value = $("#words").val().toString();
+        var listWords = value.split(' ');
+        word = listWords[listWords.length - 1];
         console.log(word);
     }      
 
-    if (nouns.includes(word) || verbs.includes(word)) {
+    if (nouns.includes(word.toLowerCase()) || verbs.includes(word.toLowerCase())) {
         var source = "/API/Sentence/" + word;
         console.log(source);
 
@@ -20,16 +22,21 @@
         });
     }
     else {
-        //$("Name of Div").SOMETHING
+        var string = word + " ";
+        $("#Sentence h2").append(string);
     }
 });
 
-function successAjax(request) {
+function successAjax(data) {
     console.log("IT WORKED");
-    console.log(request);
-    var obj = JObject.Parse(request);
-    var url = obj.data.embed_url;
-    console.log("URL found = " + url);
+    console.log("URL found = " + data);
+    $('<iframe>', {
+        src: data,
+        id: 'sentence',
+        frameborder: 0,
+        scrolling: 'no',
+        align: 'middle'
+    }).appendTo("#Sentence h2");
 }
 
 function errorAjax() {

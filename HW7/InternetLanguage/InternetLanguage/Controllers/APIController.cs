@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -28,8 +29,11 @@ namespace InternetLanguage.Controllers
             using (var stream = new StreamReader(response.GetResponseStream()))
             {
                 words = stream.ReadToEnd();
-            }
-            return Json(words, JsonRequestBehavior.AllowGet);
+            };
+
+            var obj = JObject.Parse(words);
+            string data = (string)obj["data"]["embed_url"];
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
     }
 }
