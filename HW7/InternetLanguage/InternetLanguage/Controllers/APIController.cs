@@ -38,7 +38,7 @@ namespace InternetLanguage.Controllers
             var obj = JObject.Parse(words);
             string data = (string)obj["data"]["embed_url"];
 
-            //For now this is broken. Hopefully I will get this fixed tomorrow morning.
+            //Adds stuff to the database.
             AddToDatabase(data);
 
             return Json(data, JsonRequestBehavior.AllowGet);

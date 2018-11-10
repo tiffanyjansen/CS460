@@ -12,19 +12,18 @@ namespace InternetLanguage
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-                      
-           routes.MapRoute(
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "Index"}
             );
 
-        routes.MapRoute(
-           name: "API",
-           url: "{controller}/{action}/{word}",
-           defaults: new
-           {controller = "API", action = "Sentence"}
-           );
+            routes.MapRoute(
+                name: "API",
+                url: "{controller}/{action}/{word}",
+                defaults: new {controller = "API", action = "Sentence"}
+            );
         }
     }
 }
