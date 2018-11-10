@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using InternetLanguage.DAL;
+using InternetLanguage.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,6 +14,8 @@ namespace InternetLanguage.Controllers
 {
     public class APIController : Controller
     {
+        private RequestsContext db = new RequestsContext();
+        
         // GET: API
         public JsonResult Sentence(string word)
         {
@@ -33,7 +37,32 @@ namespace InternetLanguage.Controllers
 
             var obj = JObject.Parse(words);
             string data = (string)obj["data"]["embed_url"];
+
+           // For now this is broken. Hopefully I will get this fixed tomorrow morning.
+           // AddToDatabase(data);
+
             return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        private void AddToDatabase(string data)
+        {
+            Debug.WriteLine("Made it to the add to database part.");
+            Debug.WriteLine("data = " + data);
+            Request request = new Request
+            {
+                IPAddress = HttpContext.Request.UserHostAddress,
+                DateOfRequest = DateTime.Now,
+                Browser = HttpContext.Request.UserAgent,
+                SpecialSite = data
+            };
+            Debug.WriteLine(request);
+            Debug.WriteLine("IPAddress = " + request.IPAddress);
+            Debug.WriteLine("Browser = " + request.Browser);
+            Debug.WriteLine("DateOfRequest = " + request.DateOfRequest);
+            Debug.WriteLine("SpecialSite = " + request.SpecialSite);
+            db.Requests.Add(request);
+            Debug.WriteLine(db.Requests);
+            db.SaveChanges();
         }
     }
 }

@@ -19,5 +19,9 @@ namespace InternetLanguage.Models
         [Required]
         [StringLength(25)]
         public string Browser { get; set; }
+
+        [Required]
+        [StringLength(25)]
+        public string SpecialSite { get; set; }
     }
 }
