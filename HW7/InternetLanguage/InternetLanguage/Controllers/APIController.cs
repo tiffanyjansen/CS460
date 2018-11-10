@@ -64,6 +64,7 @@ namespace InternetLanguage.Controllers
                 db.SaveChanges();
                 Debug.WriteLine("Changes were saved");
             }
+            //Got a bunch of errors so this was how i figured out how to fix them.
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             {
                 Exception raise = dbEx;
@@ -76,9 +77,6 @@ namespace InternetLanguage.Controllers
                            validationError.ErrorMessage);
 
                         Debug.WriteLine(message);
-                        // raise a new exception nesting
-                        // the current instance as InnerException
-                        //raise = new InvalidOperationException(message, raise);
                     }
                 }
             }
