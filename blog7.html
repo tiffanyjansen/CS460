@@ -262,7 +262,7 @@
                 <p>
                     function successAjax(data) {<br>
                         console.log("IT WORKED");<br>
-                        console.log("URL found = " + data);<br>
+                        console.log("URL found = " + data);<br><br>
                         $('<"iframe">', {<br>
                             src: data,<br>
                             id: 'sentence',<br>
@@ -281,9 +281,61 @@
                     Creating the database wasn't too bad, adding the data to it was the hard part (for me anyway).
                     Creating the database was the same as we've done in previous homeworks, I even created a context class 
                     using the tools from Homework 6 to make the model class for me. Once I got that done I made the 
-                    "AddToDatabase" function that I said I was going to explain later (it's officially later now). 
+                    "AddToDatabase" function that I said I was going to explain later (it's officially later now). The creating 
+                    of the database wass explained in Blog 6 and Blog 5 (maybe 4?) so I'm not going to do that again.
+                    Instead I will solely focus on how I got the information into the Database in the "AddToDatabase" function.
                 </p>
             </div>
+            <div id="Code">
+                <h4>APIController.cs</h4>
+                <p>
+                    private void AddToDatabase(string data)
+                    {<br>
+                        Request request = new Request
+                        {<br>
+                            IPAddress = Request.UserHostAddress,<br>
+                            DateOfRequest = DateTime.Now,<br>
+                            Browser = Request.Browser.Type,<br>
+                            SpecialSite = (string)data<br>
+                        };<br>
+                        db.Requests.Add(request);<br>
+                        db.SaveChanges();<br>
+                        <br>
+                        Debug.WriteLine("Changes were saved");<br>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="Words">
+                <h3>Step 9: Testing/Running the Code</h3>
+                <p>
+                    As you can see I did a lot of debugging while I was creating the project, but testing out 
+                    the completed work is the best part. In order to see if it's all working I'm going to include 
+                    some screenshots here and a link to a Demo video so you can see it more in action. The screenshots 
+                    are mainly to see if the Database is actually working or not. 
+                    <br><br>
+                    Demo Video Link: <a href="https://youtu.be/SQrgoKb1jEQ">Demo</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <img style="width: 95%;" src="HW7/Words1.JPG">
+        </div>
+        <div class="col-md-5">
+            <img style="width: 95%; margin-top: 100px;" src="HW7/Database1.JPG">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <img style="width: 95%;" src="HW7/Words2.JPG">
+        </div>
+        <div class="col-md-5">
+            <img style="width: 95%; margin-top: 75px;" src="HW7/Database2.JPG">
         </div>
     </div>
     <div class="row">
