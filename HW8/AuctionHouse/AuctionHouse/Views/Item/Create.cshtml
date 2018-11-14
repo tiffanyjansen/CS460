@@ -1,0 +1,22 @@
+﻿@model AuctionHouse.Models.Item
+
+@{
+                /**/
+
+                ViewBag.Title = "Create";
+}
+
+<div class="center">
+    <h2 style="font-family: Georgia, serif;">Create a New Item For Sale</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div class="center">
+            <div class="col-md-6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
