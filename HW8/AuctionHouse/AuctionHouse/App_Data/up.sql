@@ -21,17 +21,19 @@ CREATE TABLE [dbo].[Item]
     [Name] NVARCHAR(30) NOT NULL, 
     [Description] NVARCHAR(100) NULL, 
     [Seller] NVARCHAR(30) NOT NULL,
-	CONSTRAINT [PK_dbo.Bid] PRIMARY KEY CLUSTERED (ID ASC),
+	CONSTRAINT [PK_dbo.Item] PRIMARY KEY CLUSTERED (ID ASC),
     CONSTRAINT [FK_Item_Seller] FOREIGN KEY ([Seller]) REFERENCES [Seller]([Name])
 );
 
 /* Create the Bid Table */
 CREATE TABLE [dbo].[Bid]
 (
-	[Item] INT NOT NULL PRIMARY KEY, 
+	[ID] INT IDENTITY(1,1) NOT NULL,
+	[Item] INT NOT NULL, 
     [Buyer] NVARCHAR(30) NOT NULL, 
     [Price] MONEY NULL, 
     [Timestamp] DATETIME NOT NULL, 
+	CONSTRAINT [PK_dbo.Bid] PRIMARY KEY CLUSTERED (ID ASC),
 	CONSTRAINT [FK_Bid_Item] FOREIGN KEY ([Item]) REFERENCES [Item]([ID]), 
     CONSTRAINT [FK_Bid_Buyer] FOREIGN KEY ([Buyer]) REFERENCES [Buyer]([Name]) 
 );
