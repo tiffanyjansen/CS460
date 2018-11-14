@@ -4,26 +4,46 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<div class="center">
+    <h2 style="font-family: Georgia, serif;">Items For Sale</h2>
+</div>
 
-<table>
-    <thead>
-        <tr align="center">
-            <th>@Html.DisplayNameFor(model => model.ID)</th>
-            <th>@Html.DisplayNameFor(model => model.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.Seller)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr align="center">
-            <td>@Html.DisplayFor(modelItem => item.ID)</td>
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-            <td>@Html.DisplayFor(modelItem => item.Seller)</td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div class="col-md-12">
+    <table align="center">
+        <thead>
+            <tr>
+                <th style="font-family: Georgia, serif;">
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th style="font-family: Georgia, serif;">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th style="font-family: Georgia, serif;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th style="font-family: Georgia, serif;">
+                    @Html.DisplayNameFor(model => model.Seller)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-family: Georgia, serif;">
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td style="font-family: Georgia, serif;">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td style="font-family: Georgia, serif;">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td style="font-family: Georgia, serif;">
+                        @Html.DisplayFor(modelItem => item.Seller)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
