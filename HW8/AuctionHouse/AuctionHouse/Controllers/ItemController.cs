@@ -2,6 +2,7 @@
 using AuctionHouse.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -128,6 +129,65 @@ namespace AuctionHouse.Controllers
 
             //return the view with the item.
             return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult Edit([Bind(Include = "Name,Description,Seller")] Item item)
+        {
+            //Debug to check where we are.
+            Debug.WriteLine("We are in the Edit Method (Post)");
+
+            //Decide if the "Seller" inputted is in the Seller table, using Linq
+            Seller Person = db.Sellers.Where(s => s.Name == item.Seller).FirstOrDefault();
+
+            //Check if Person is null, if so return error message and list of options.
+            if (Person == null)
+            {
+                //Find all the Sellers using Linq
+                List<string> SellerNames = db.Sellers.Select(seller => seller.Name).ToList();
+
+                //Create list of options so client can pick one from it.
+                string Names = SellerNames[0];
+                for (int i = 1; i < SellerNames.Count; i++)
+                {
+                    Names += ", " + SellerNames[i];
+                };
+
+                //Debug to let me know the seller was not in the table.
+                Debug.WriteLine("Seller was not in the Seller Table.");
+
+                //ViewBags error message and list of options
+                ViewBag.Error = "The Seller is not in the seller table, please try again.";
+                ViewBag.Options = "Your Options are: " + Names;
+
+                //Return the View (with the ViewBags)
+                return View();
+            }
+
+            //Check if model state is valid (if the object is actually formatted correctly)
+            if (ModelState.IsValid)
+            {
+                //Update and save to database
+                db.Entry<Item>(item).State = System.Data.Entity.EntityState.Modified;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException e)
+                {
+                    Debug.WriteLine("Exception Thrown, no changes were saved.");
+                    Debug.WriteLine(e.ToString());
+                    Debug.WriteLine(e.Data);
+                    return RedirectToAction("Details", item.ID);
+                }
+                
+
+                //Redirect to the Details page so you can see what all has been added.
+                return RedirectToAction("List");
+            }
+
+            //If model is not correctly formatted do nothing...
+            return View();
         }
     }
 }
