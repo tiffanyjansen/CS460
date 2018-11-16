@@ -165,6 +165,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BidController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,6 +227,7 @@
     <Content Include="Views\Item\Details.cshtml" />
     <Content Include="Views\Item\Edit.cshtml" />
     <Content Include="Views\Item\Delete.cshtml" />
+    <Content Include="Views\Bid\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
