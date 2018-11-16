@@ -6,10 +6,10 @@ namespace AuctionHouse.DAL
     using System.Linq;
     using AuctionHouse.Models;
 
-    public partial class AntiquitiesContext : DbContext
+    public partial class AntiqueContext : DbContext
     {
-        public AntiquitiesContext()
-            : base("name=AntiquitiesContext")
+        public AntiqueContext()
+            : base("name=Antique")
         {
         }
 

@@ -42,6 +42,12 @@
                     <td style="font-family: Georgia, serif;">
                         @Html.DisplayFor(modelItem => item.Seller)
                     </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", "Item", new
+                   {
+                       id = item.ID
+                   }, null)
+                    </td>
                 </tr>
             }
         </tbody>
@@ -50,7 +56,7 @@
 <div class="col-md-12">
     <div class="center">
         <h3 style="font-family: Georgia, serif;">
-            @Html.ActionLink("Create a New Item Here", "Create", "Item")
+            @Html.ActionLink("Create a New Item to Sell", "Create", "Item")
         </h3>
     </div>
 </div>
