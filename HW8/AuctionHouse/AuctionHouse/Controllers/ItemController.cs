@@ -25,42 +25,19 @@ namespace AuctionHouse.Controllers
         public ActionResult Create()
         {
             //Return View.
+            ViewBag.Seller = new SelectList(db.Sellers, "Name", "Name");
             return View();
         }
 
         [HttpPost]
         public ActionResult Create([Bind(Include = "Name,Description,Seller")] Item item)
         {
-            //Decide if the "Seller" inputted is in the Seller table, using Linq
-            Seller Person = db.Sellers.Where(s => s.Name == item.Seller).FirstOrDefault();
-
-            //Check if Person is null, if so return error message and list of options.
-            if (Person == null)
-            {
-                //Find all the Sellers using Linq
-                List<string> SellerNames = db.Sellers.Select(seller => seller.Name).ToList();
-
-                //Create list of options so client can pick one from it.
-                string Names = SellerNames[0];
-                for(int i = 1; i < SellerNames.Count; i++)
-                {
-                    Names += ", " + SellerNames[i];
-                };
-
-                //Debug to let me know the seller was not in the table.
-                Debug.WriteLine("Seller was not in the Seller Table.");
-
-                //ViewBags error message and list of options
-                ViewBag.Error = "The Seller is not in the seller table, please try again.";
-                ViewBag.Options = "Your Options are: " + Names;
-
-                //Return the View (with the ViewBags)
-                return View();
-            }
-
+            Debug.WriteLine("We are in the Create Method (Post)");
+            
             //Check if model state is valid (if the object is actually formatted correctly)
             if (ModelState.IsValid)
             {
+                Debug.WriteLine("The Model State is Valid.");
                 //Add and save to database
                 db.Items.Add(item);
                 db.SaveChanges();
@@ -68,7 +45,7 @@ namespace AuctionHouse.Controllers
                 //Redirect to the Details page so you can see what all has been added.
                 return RedirectToAction("Details", item.ID);
             }
-
+            Debug.WriteLine("Nothing is going to happen");
             //If model is not correctly formatted do nothing...
             return View();
         }
@@ -87,10 +64,8 @@ namespace AuctionHouse.Controllers
             }
 
             //Get the item using Linq
-            Item item = db.Items
-                .Where(i => i.ID == ID)
-                .FirstOrDefault();
-
+            Item item = db.Items.Find(ID);
+                
             //Check if item is null, if so go back to the list.
             if (item == null)
             {
@@ -116,10 +91,8 @@ namespace AuctionHouse.Controllers
             }
 
             //Get the item using Linq
-            Item item = db.Items
-                .Where(i => i.ID == ID)
-                .FirstOrDefault();
-
+            Item item = db.Items.Find(ID);
+                
             //Check if the item is null, if so go back to the list.
             if (item == null)
             {
@@ -128,66 +101,64 @@ namespace AuctionHouse.Controllers
             }
 
             //return the view with the item.
+            ViewBag.Seller = new SelectList(db.Sellers, "Name", "Name");
             return View(item);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Name,Description,Seller")] Item item)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Seller")] Item item)
         {
             //Debug to check where we are.
             Debug.WriteLine("We are in the Edit Method (Post)");
-
-            //Decide if the "Seller" inputted is in the Seller table, using Linq
-            Seller Person = db.Sellers.Where(s => s.Name == item.Seller).FirstOrDefault();
-
-            //Check if Person is null, if so return error message and list of options.
-            if (Person == null)
-            {
-                //Find all the Sellers using Linq
-                List<string> SellerNames = db.Sellers.Select(seller => seller.Name).ToList();
-
-                //Create list of options so client can pick one from it.
-                string Names = SellerNames[0];
-                for (int i = 1; i < SellerNames.Count; i++)
-                {
-                    Names += ", " + SellerNames[i];
-                };
-
-                //Debug to let me know the seller was not in the table.
-                Debug.WriteLine("Seller was not in the Seller Table.");
-
-                //ViewBags error message and list of options
-                ViewBag.Error = "The Seller is not in the seller table, please try again.";
-                ViewBag.Options = "Your Options are: " + Names;
-
-                //Return the View (with the ViewBags)
-                return View();
-            }
 
             //Check if model state is valid (if the object is actually formatted correctly)
             if (ModelState.IsValid)
             {
                 //Update and save to database
-                db.Entry<Item>(item).State = System.Data.Entity.EntityState.Modified;
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException e)
-                {
-                    Debug.WriteLine("Exception Thrown, no changes were saved.");
-                    Debug.WriteLine(e.ToString());
-                    Debug.WriteLine(e.Data);
-                    return RedirectToAction("Details", item.ID);
-                }
-                
+                db.Entry(item).State = EntityState.Modified;
+                db.SaveChanges();                            
 
                 //Redirect to the Details page so you can see what all has been added.
-                return RedirectToAction("List");
+                return RedirectToAction("Details", item.ID);
             }
 
             //If model is not correctly formatted do nothing...
-            return View();
+            ViewBag.Seller = new SelectList(db.Sellers, "Name", "Name");
+            return View(item);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? ID)
+        {
+            //Check if ID is null, if so redirect to list.
+            if (ID == null)
+            {
+                Debug.WriteLine("The ID was null");
+                return RedirectToAction("List");
+            }
+
+            //Get the item using Linq
+            Item item = db.Items.Find(ID);
+
+            //Check if the item is null, if so go back to the list.
+            if (item == null)
+            {
+                Debug.WriteLine("The item was null.");
+                return RedirectToAction("List");
+            }
+
+            //Return View with the item in it.
+            return View(item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Item item = db.Items.Find(id);
+            db.Items.Remove(item);
+            db.SaveChanges();
+            return RedirectToAction("List");
         }
     }
 }

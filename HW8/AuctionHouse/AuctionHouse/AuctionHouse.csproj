@@ -167,7 +167,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Controllers\ScaffoldController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,11 +225,7 @@
     <Content Include="Views\Item\Create.cshtml" />
     <Content Include="Views\Item\Details.cshtml" />
     <Content Include="Views\Item\Edit.cshtml" />
-    <Content Include="Views\Scaffold\Create.cshtml" />
-    <Content Include="Views\Scaffold\Delete.cshtml" />
-    <Content Include="Views\Scaffold\Details.cshtml" />
-    <Content Include="Views\Scaffold\Edit.cshtml" />
-    <Content Include="Views\Scaffold\Index.cshtml" />
+    <Content Include="Views\Item\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />

@@ -27,6 +27,9 @@
                 <th style="font-family: Georgia, serif;">
                     Edit
                 </th>
+                <th style="font-family: Georgia, serif;">
+                    Delete
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +40,7 @@
                         @Html.DisplayFor(modelItem => item.ID)
                     </td>
                     <td style="font-family: Georgia, serif;">
-                        @Html.ActionLink("" + item.Name, "Details", "Item", new
-                            {
-                                id = item.ID
-                            }, null)
+                        @Html.ActionLink("" + item.Name, "Details", "Item", new { id = item.ID }, null)
                     </td>
                     <td style="font-family: Georgia, serif;">
                         @Html.DisplayFor(modelItem => item.Description)
@@ -49,10 +49,10 @@
                         @Html.DisplayFor(modelItem => item.Seller)
                     </td>
                     <td style="font-family: Georgia, serif;">
-                        @Html.ActionLink("Editor for " + item.Name, "Edit", "Item", new
-                            {
-                                id = item.ID
-                            }, null)
+                        @Html.ActionLink("Editor for " + item.Name, "Edit", "Item", new { id = item.ID }, null)
+                    </td>
+                    <td style="font-family: Georgia, serif;">
+                        @Html.ActionLink("Delete " + item.Name + "?", "Delete", "Item", new { id = item.ID }, null)
                     </td>
                 </tr>
             }
