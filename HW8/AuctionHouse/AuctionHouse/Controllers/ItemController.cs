@@ -23,13 +23,31 @@ namespace AuctionHouse.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //return view
+            //Return View.
             return View();
         }
 
         [HttpPost]
         public ActionResult Create([Bind(Include = "Name,Description,Seller")] Item item)
         {
+            Seller Person = db.Sellers.Where(s => s.Name == item.Seller).FirstOrDefault();
+            
+            if (Person == null)
+            {
+                List<string> SellerNames = db.Sellers.Select(seller => seller.Name).ToList();
+                string Names = SellerNames[0];
+                for(int i = 1; i < SellerNames.Count; i++)
+                {
+                    Names += ", " + SellerNames[i];
+                };
+
+                Debug.WriteLine("Seller was not in the Seller Table.");
+                ViewBag.Error = "The Seller is not in the seller table, please try again.";
+                ViewBag.Options = "Your Options are: " + Names;
+                    
+                return View();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Items.Add(item);

@@ -34,19 +34,16 @@
                         @Html.DisplayFor(modelItem => item.ID)
                     </td>
                     <td style="font-family: Georgia, serif;">
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @Html.ActionLink("" + item.Name, "Details", "Item", new
+                            {
+                                id = item.ID
+                            }, null)
                     </td>
                     <td style="font-family: Georgia, serif;">
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td style="font-family: Georgia, serif;">
                         @Html.DisplayFor(modelItem => item.Seller)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Details", "Details", "Item", new
-                   {
-                       id = item.ID
-                   }, null)
                     </td>
                 </tr>
             }
