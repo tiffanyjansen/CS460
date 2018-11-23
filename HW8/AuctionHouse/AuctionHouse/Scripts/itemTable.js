@@ -19,7 +19,7 @@ function successAjax(result) {
     success = true;
     i = 0;
     while (i < json.length) {
-        $('#Items table').append('<tr><td>' + json[i]["ItemID"] + '</td><td>' + json[i]["ItemName"] + '</td><td>' + json[i]["BuyerName"] + '</td><td>' + json[i]["BidAmount"] + '</td><td>' + json[i]["TimeStamp"] + '</td></tr>');
+        $('#Items table').append('<tr><td>' + json[i]["ItemID"] + '</td><td>' + '@Html.ActionLink(json[i]["ItemName"], "Details", "Item", new { id = item.ID }, null)' + '</td><td>' + json[i]["BuyerName"] + '</td><td>' + json[i]["BidAmount"] + '</td><td>' + json[i]["TimeStamp"] + '</td></tr>');
         i++;
     }
     $('#Items table').append('</tbody>');

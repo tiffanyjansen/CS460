@@ -16,7 +16,11 @@ namespace AuctionHouse.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Bid> recentBids = db.Items.SelectMany(item => item.Bids)
+                .OrderByDescending(bid => bid.Timestamp)
+                .Take(10);
+
+            return View(recentBids);
         }
     }
 }

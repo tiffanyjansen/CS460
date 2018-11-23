@@ -34,22 +34,5 @@ namespace AuctionHouse.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-        public JsonResult Table()
-        {
-            Debug.WriteLine("We are in the Ajax Controller");
-
-            IEnumerable<Bid> recentBids = db.Items.SelectMany(item => item.Bids)
-                .OrderByDescending(bid => bid.Timestamp)
-                .Take(10);
-
-            var viewModel = recentBids.Select(bid => new { ItemID = bid.Item, ItemName = bid.Item1.Name, BuyerName = bid.Buyer, BidAmount = bid.Price, TimeStamp = bid.Timestamp });
-                        
-            string result = JsonConvert.SerializeObject(viewModel, Formatting.None);
-
-            Debug.WriteLine(result);
-
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
     }
 }
