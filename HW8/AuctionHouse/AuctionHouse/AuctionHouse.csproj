@@ -232,14 +232,6 @@
     <Content Include="Views\Item\Delete.cshtml" />
     <Content Include="Views\Bid\Create.cshtml" />
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup />
-=======
-  <ItemGroup>
-    <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\Ajax\" />
-  </ItemGroup>
->>>>>>> bidHW8
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

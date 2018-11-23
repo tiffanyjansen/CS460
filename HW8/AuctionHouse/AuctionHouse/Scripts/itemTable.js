@@ -1,10 +1,6 @@
-﻿var interval = 5000;
-console.log("interval = " + interval);
-window.setInterval(ajax_call, interval);
-
-var ajax_call = function () {
+﻿var ajax_call = function () {
     clearTable();
-    var source = "/Home/Table/";
+    var source = "/Ajax/Table/";
     console.log(source);
     $.ajax({
         type: "GET",
@@ -41,3 +37,7 @@ function clearTable() {
     $('#Items table').remove();
     createTable();
 }
+
+var interval = 5000;
+console.log("interval = " + interval);
+window.setInterval(ajax_call, interval);
