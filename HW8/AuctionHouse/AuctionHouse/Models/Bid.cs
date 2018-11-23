@@ -18,7 +18,7 @@ namespace AuctionHouse.Models
         public string Buyer { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
 
         public DateTime Timestamp { get; set; }
 
