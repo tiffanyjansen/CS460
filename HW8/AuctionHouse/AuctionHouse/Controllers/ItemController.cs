@@ -156,6 +156,10 @@ namespace AuctionHouse.Controllers
         public ActionResult Delete(int id)
         {
             Item item = db.Items.Find(id);
+            foreach (Bid bid in item.Bids.ToList())
+            {
+                db.Bids.Remove(bid);
+            }
             db.Items.Remove(item);
             db.SaveChanges();
             return RedirectToAction("List");
