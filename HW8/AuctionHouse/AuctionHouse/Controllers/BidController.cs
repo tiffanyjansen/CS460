@@ -38,7 +38,11 @@ namespace AuctionHouse.Controllers
                 db.Bids.Add(bid);
                 db.SaveChanges();
 
-                return View("~/Views/Home/Index.cshtml");
+                return RedirectToRoute(new
+                {
+                    controller = "Home",
+                    action = "Index"
+                });
             }
 
             ViewBag.Buyer = new SelectList(db.Buyers, "Name", "Name");

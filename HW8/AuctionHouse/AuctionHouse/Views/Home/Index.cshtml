@@ -10,7 +10,8 @@
 </div>
 
 <div class="center">
-    <a class="btn btn-primary" @Html.ActionLink("Place a Bid!", "Create", "Bid") />
+    <a class="btn btn-primary" @Html.ActionLink("Place a Bid!", "Create", "Bid")</a>
+    <br /><br />
 </div>
 
 <div class="col-md-12">
@@ -51,7 +52,12 @@
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td style="font-family: Georgia, serif;">
-                        @Html.DisplayFor(modelItem => item.Timestamp)
+                        @if(@item.Timestamp.ToString("d") == @DateTime.Today.ToString("d")){
+                            @item.Timestamp.ToString("T")
+                        }
+                        else{
+                            @Html.DisplayFor(modelItem => item.Timestamp)
+                        }
                     </td>
                 </tr>
             }
