@@ -9,7 +9,7 @@ namespace AuctionHouse.DAL
     public partial class AntiqueContext : DbContext
     {
         public AntiqueContext()
-            : base("name=Antique")
+            : base("name=AuctionHouse")
         {
         }
 

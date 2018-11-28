@@ -18,7 +18,7 @@ namespace AuctionHouse.Controllers
         {
             IEnumerable<Bid> recentBids = db.Items.SelectMany(item => item.Bids)
                 .OrderByDescending(bid => bid.Timestamp)
-                .Take(10);
+                .Take(10).ToList();
 
             return View(recentBids);
         }
