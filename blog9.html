@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> CS 460 </title>      
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="hwstyles.css">
+    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div id="blog">
+        <h1>Homework 9 Blog</h1>
+    </div>
+</head>
+<body style="background: lightgray;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Intro">
+                    <h3>About the Assignment</h3>
+                    <p>
+                        For this assignment we were asked to put our Homework 8 Assignment onto the Cloud using Azure. The assignment
+                        wasn't too bad because I just followed all of his steps in the video found here: <a href="http://www.wou.edu/~morses/classes/cs46x/lecture/Videos.html">Video</a> 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 1: Create Account on Azure</h3>
+                    <p>
+                        This part wasn't so bad because I just followed the steps on their website to create an account. After creating it I just 
+                        followed the video until I got it all done. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 2: Create Resource Group</h3>
+                    <p>
+                        This part was pretty explanatory because the website has a nice interface. 
+                        <ol>
+                            <h4>On Azure Website:</h4>
+                            <li>Click the Add Button</li>
+                            <li>Name the Group</li>
+                            <li>Click Create</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="Words">
+                    <h3>Step 3: Create SQL Database</h3>
+                    <p>
+                        <ol>
+                            <h4>On Azure Website:</h4>
+                            <li>Go to SQL Database Tab</li>
+                            <li>Click Add</li>
+                            <li>Name It</li>
+                            <li>Put it in the Created Resource Group</li>
+                            <li>Keep the Source Blank</li>
+                            <li>**Create a New Server</li>
+                            <li>Select Basic Plan</li>
+                            <li>Click Create</li>
+                        </ol>
+                        **Creating a New Server Steps:
+                        <ol>
+                            <li>Name it</li>
+                            <li>Give it a Username and Password</li>
+                            <li>Click Select</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img style="width: 100%;" src="HW9/Database.JPG">
+            </div>
+            <div class="col-md-5">
+                <img style="width:100%;" src="HW9/Server.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div id="Words">
+                    <h3>Step 4: Add a Firewall Rule</h3>
+                    <p>
+                        We add this so our local machine and our azure app can share the database that is in the cloud. (Opens the port for the IP address)
+                        <ol>
+                            <h4>On Azure Website:</h4>
+                            <li>Go to Resource Group with Database</li>
+                            <li>Select the SQL Server in the Group</li>
+                            <li>Under Security Select Firewalls and virtual networks</li>
+                            <li>Name the Rule</li>
+                            <li>Copy and paste the IP Address into BOTH boxes</li>
+                            <li>Click Save at the top</li>
+                            <li>Wait for it to load</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <img style="width:100%;" src="HW9/Firewall.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="Words">
+                    <h3>Step 5: Connect to DB from Local Machine</h3>
+                    <p>
+                        For this step I just used the SQL Server Object Explorer in Visual Studio.
+                        <ol>
+                            <h4>On Visual Studio:</h4>
+                            <li>Go to SQL Server Object Explorer</li>
+                            <li>Select the Add SQL Server Thing Next to the Refresh Arrow</li>
+                            <li>Select Azure</li>
+                            <li>Find Server that you Added Eariler</li>
+                            <li>Type in Username and Password</li>
+                            <li>And BAM! Connected.</li>
+                            <li>Open the Up Script</li>
+                            <li>Click the Connect Icon</li>
+                            <li>Make sure the DB that you just Connected to is the one Connected</li>
+                            <li>Click the Green Execute Arrow</li>
+                            <li>Wait for it to load</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img style="width:100%;" src="HW9/ConnectDB1.JPG">
+            </div>
+            <div class="col-md-4">
+                <img style="width:100%;" src="HW9/ConnectDB2.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="Words">
+                    <h3>Step 6: Get and Use the Connection String</h3>
+                    <p>
+                        This is important for accessing the database from the cloud. 
+                        <ol>
+                            <h4>On Azure Website:</h4>
+                            <li>Go to SQL Databases</li>
+                            <li>Select the Database we need the Connection String for</li>
+                            <li>Click the "Show database connection strings" Link</li>
+                            <li>Click the Click to Copy Icon</li>
+                            <li>Go to Visual Studio</li>
+                        </ol>
+                        <ol>
+                            <h4>On Visual Studio:</h4>
+                            <li>Open the Web.Config File</li>
+                            <li>Paste Connection String into the Connection String Section</li>
+                            <li>Put in Username and Password</li>
+                            <li>Make sure Names Match</li>
+                            <li>Make sure it Works.</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <img style="width: 100%;" src="HW9/ConnectionString1.JPG">
+                <img style="width: 100%;" src="HW9/ConnectionString.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="center">
+                    <img style="width: 100%;" src="HW9/ConnectionString2.JPG">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="Words">
+                    <h3>Step 7: Create Web App on Azure</h3>
+                    <p>
+                        <ol>
+                            <h4>On Azure Website:</h4>
+                            <li>Go to App Services</li>
+                            <li>Click Add</li>
+                            <li>Select Web App</li>
+                            <li>Click Create</li>
+                            <li>Name It</li>
+                            <li>Use the Existing Resource Group</li>
+                            <li>Select a Free Plan</li>
+                            <li>Select Create</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img style="width: 100%;" src="HW9/CreateApp.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div id="Words">
+                    <h3>Step 8: Configure Connection String</h3>
+                    <p>
+                        <ol>
+                            <h4>On Azure Website:</h4>
+                            <li>Go to App Services</li>
+                            <li>Select Created App</li>
+                            <li>Go to Application Settings Tab</li>
+                            <li>Scroll To Connection Strings Section</li>
+                            <li>Type in Name Found in Context Class</li>
+                            <li>Paste Connection String from Web.Config into Value</li>
+                            <li>Select SQL Server instead of SQL Azure</li>
+                            <li>Click Save at the Top</li>
+                            <li>Wait for it to Load</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <img style="width: 100%;" src="HW9/ConnectingToApp1.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img style="width: 100%;" src="HW9/ConnectingToApp.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="Words">
+                    <h3>Step 9: Publish to the Cloud</h3>
+                    <p>
+                        <ol>
+                            <h4>On Visual Studio:</h4>
+                            <li>Go to Build Tab</li>
+                            <li>Click on Publish</li>
+                            <li>Select "Select Existing"</li>
+                            <li>Click Publish</li>
+                            <li>Choose the Web App Created</li>
+                            <li>Click Ok</li>
+                            <li>DONE!</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <img style="width: 100%;" src="HW9/PublishApp1.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img style="width: 100%;" src="HW9/PublishApp2.JPG">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Words">
+                    <h3>Step 10: You Have Successfully Published Your App</h3>
+                    <p>
+                        This is the part where you test it and make sure it works. I will allow you to do that since
+                        I do not want to take anymore screenshots. The web app that I have published can be found 
+                        by following this link: <h4 style="text-align: center;"><a href="http://cs460hw8fall2018.azurewebsites.net">My Web Page</a></h4>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Intro">
+                    <h3>Closing Remarks</h3>
+                    <p>
+                        This assignment was fun. I thought it was a nice refresh from creating a web app every week. I am not sure
+                        how comfortable I am in doing this in a test environment, but it wasn't too bad. I definitely am going to practice it morse 
+                        for the final coming up though.
+                    </p>
+                    <p id= "closing">See you next time,</p>
+                    <p id="sign">Tiffany Jansen</p>
+                </div>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>

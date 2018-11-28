@@ -202,6 +202,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\cs460HW8Fall2018 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\cs460HW8Fall2018 - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\cs460HW8Fall2018 - Web Deploy2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
